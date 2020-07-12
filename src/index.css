@@ -48,3 +48,44 @@ a, a:link, a:visited {
 a:hover {
   color: var(--primary-link-colour-hover);
 }
+
+
+/* Navigation */
+
+.app-navbar {
+  background-color: var(--app-blue);
+}
+
+.app-navbar-brand a:link,
+.app-navbar-brand a:visited,
+.app-navbar-brand a:hover,
+.app-navbar-brand a:active {
+  color: var(--inverse-txt);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  word-spacing: 0.08rem;
+}
+
+#basic-navbar-nav a,
+#basic-navbar-nav a:link,
+#basic-navbar-nav a:visited {
+  color: var(--inverse-txt);
+  text-transform: capitalize; 
+}
+
+#basic-navbar-nav a:hover,
+#basic-navbar-nav a:active {
+  color: var(--app-lighter-grey);
+}
+
+.navbar-toggler {
+  background-color: var(--app-blue);
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
