@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 import HomePage from './pages/home'
 import AboutPage from './pages/about'
 import ContactPage from './pages/contact'
@@ -16,6 +17,7 @@ export default function App() {
         <Route path={ROUTES.ABOUT} component={AboutPage} />
         <Route path={ROUTES.CONTACT} component={ContactPage} />
       </Switch>
+      <Footer />
     </Fragment>
   );
 }

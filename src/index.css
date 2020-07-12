@@ -89,3 +89,44 @@ a:hover {
 .navbar-toggler:focus {
   outline: none;
 }
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  color: var(--app-lighter-grey);
+  background-color: var(--fifth-bg);
+  padding: 2rem 0 6rem 0;
+}
+
+.app-footer Button {
+  border: none;
+  padding: 0 0 4px 3px;
+  color: var(--app-lighter-grey);
+}
+
+.app-footer Button:hover {
+  color: var(--app-white);
+}
+
+.app-footer-icon {
+  vertical-align: middle;
+}
+
+.app-footer-credits {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+
+.app-footer-credits a,
+.app-footer-credits a:link,
+.app-footer-credits a:visited {
+  color: var(--app-lighter-grey);
+  border-bottom: 1px solid var(--app-lighter-grey);
+}
+
+.app-footer-credits a:hover,
+.app-footer-credits a:active {
+  color: var(--app-white);
+  border-bottom: none;
+  text-decoration: none;
+}
