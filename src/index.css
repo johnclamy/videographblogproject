@@ -130,3 +130,33 @@ a:hover {
   border-bottom: none;
   text-decoration: none;
 }
+
+/* Articles */
+.article-title-link:link {
+  color: var(--app-dark-blue);
+}
+
+.article-title-link:hover {
+  color: var(--app-blue);
+  text-decoration: none;
+}
+
+.article-source-link:link {
+  color: var(--app-grey);
+}
+
+.article-source-link:hover {
+  color: var(--app-black);
+  text-decoration: none;
+}
+
+.article-source-item {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.button-remove {
+  height: 42px;
+  width: 42px;
+  margin-left: 2rem;
+}
