@@ -90,7 +90,78 @@ a:hover {
   outline: none;
 }
 
+
+/* filter toolbar */
+
+.filter-toolbar {
+  background-color: var(--primary-bg);
+  padding: 1rem 0;
+}
+
+.filter-toolbar button {
+  width: 130px;
+  background: var(--app-pink);
+  border-color: var(--app-pink);
+  text-transform: uppercase;
+}
+
+.filter-toolbar button:hover {
+  background: rgb(241, 85, 108);
+  border-color: rgb(241, 85, 108);
+}
+
+
+/* SearchBar */
+
+.search-button:hover {
+  background-color: var(--app-dark-blue);
+}
+
+
+/* Articles */
+
+.article-title-link:link {
+  color: var(--app-dark-blue);
+}
+
+.article-title-link:hover {
+  color: var(--app-blue);
+  text-decoration: none;
+}
+
+.article-source-link:link {
+  color: var(--app-grey);
+}
+
+.article-source-link:hover {
+  color: var(--app-black);
+  text-decoration: none;
+}
+
+.article-source-item {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.button-remove {
+  height: 42px;
+  width: 42px;
+  margin-left: 2rem;
+}
+
+
+/* Aside filter */
+
+.aside-filter-title {
+  font-size: 1.05rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+
 /* Footer */
+
 .app-footer {
   text-align: center;
   color: var(--app-lighter-grey);
@@ -131,32 +202,3 @@ a:hover {
   text-decoration: none;
 }
 
-/* Articles */
-.article-title-link:link {
-  color: var(--app-dark-blue);
-}
-
-.article-title-link:hover {
-  color: var(--app-blue);
-  text-decoration: none;
-}
-
-.article-source-link:link {
-  color: var(--app-grey);
-}
-
-.article-source-link:hover {
-  color: var(--app-black);
-  text-decoration: none;
-}
-
-.article-source-item {
-  font-size: 0.8rem;
-  margin-bottom: 4px;
-}
-
-.button-remove {
-  height: 42px;
-  width: 42px;
-  margin-left: 2rem;
-}
