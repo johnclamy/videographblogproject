@@ -13,12 +13,8 @@ export default function Article ({
   description = '',
   url = '',
   publishedAt = '',
-  // onArticleRemove = f => f
+  onArticleRemove = f => f
 }) {
-  const handleClick = id => {
-    // onArticleRemove(id)
-  }
-
   return (
     <ListGroup.Item>
       <div className="d-flex justify-content-between">
@@ -27,7 +23,7 @@ export default function Article ({
           type="button"
           variant="danger"
           className="button-remove"
-          onClick={() => handleClick(id)}
+          onClick={() => onArticleRemove(id)}
         > 
           <FaTrash />
         </Button>

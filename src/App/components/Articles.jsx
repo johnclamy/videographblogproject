@@ -3,13 +3,18 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 import { ArticleContext } from '../contexts/ArticleContext'
 import Article from './Article'
+import searchArticles from '../../scripts/searchArticles'
 
 export default function Articles (props) {
-  const { articles } = useContext(ArticleContext)
+  const {
+    articles,
+    onArticleRemove,
+    searchTerm
+  } = useContext(ArticleContext)
 
   return (
     <ListGroup variant="flush">
-      {articles.map(article =>
+      {articles.filter(searchArticles(searchTerm)).map(article =>
         <Article
           key={article.id}
           id={article.id}
@@ -17,7 +22,8 @@ export default function Articles (props) {
           title={article.title}
           description={article.description}
           url={article.ulr}
-          publishedAt={article.publishedAt} 
+          publishedAt={article.publishedAt}
+          onArticleRemove={onArticleRemove}
         />          
       )}
     </ListGroup>
