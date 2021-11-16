@@ -1,7 +1,10 @@
-export default function App() {
+import { ThemeProvider } from "styled-components"
+import { color } from './constants'
+
+export default function App({ children }) {
   return (
-    <div>
-      hello, world!
-    </div>
+    <ThemeProvider theme={{ color }}>
+      {children}
+    </ThemeProvider>
   )
 }
