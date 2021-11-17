@@ -28,8 +28,8 @@ const color: Color = {
   headingTxt: '#303f9f',
 
   /* Link colours */
-  primaryLinkColor:        '#3f51b5',
-  primaryLinkColorHover: '#727272',
+  primaryLinkColor:     '#3f51b5',
+  primaryLinkColorHover:'#727272',
 
   /* Border colours */
   primaryBorderColor:   '#b6b6b6',
