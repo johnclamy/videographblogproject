@@ -29,7 +29,7 @@ const color: Color = {
 
   /* Link colours */
   primaryLinkColor:        '#3f51b5',
-  secondaryLinkColorHover: '#727272',
+  primaryLinkColorHover: '#727272',
 
   /* Border colours */
   primaryBorderColor:   '#b6b6b6',

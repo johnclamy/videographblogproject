@@ -27,7 +27,7 @@ type Color = {
 
   /* Link colours */
   primaryLinkColor:        string
-  secondaryLinkColorHover: string
+  primaryLinkColorHover: string
 
   /* Border colours */
   primaryBorderColor:   string
