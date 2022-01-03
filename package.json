@@ -1,0 +1,153 @@
+{
+  "name": "newsfeed-app",
+  "version": "1.0.0",
+  "description": "Mobile first newsfeed aggregator website",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./build/webpack/local.webpack.config.babel.js --env=localdev",
+    "start": "webpack serve --open --config ./build/webpack/local.webpack.config.babel.js --env=localdev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnclamy/newsfeed-app.git"
+  },
+  "author": "John Lamy <johnclamy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnclamy/newsfeed-app/issues"
+  },
+  "homepage": "https://github.com/johnclamy/newsfeed-app#readme",
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          },
+          "corejs": "3",
+          "useBuiltIns": "usage"
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "globals": {
+      "fetch": true
+    },
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2019,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "react",
+      "react-hooks",
+      "import"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": [
+        "warn"
+      ],
+      "react/prop-types": "warn",
+      "import/no-unresolved": "warn",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
+    },
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "detect"
+      },
+      "import/parsers": {
+        "@typescript-eslint/parser": [
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".ts",
+            ".tsx"
+          ]
+        },
+        "typescript": {
+          "extensions": [
+            ".ts",
+            ".tsx",
+            ".js",
+            ".jsx"
+          ],
+          "alwaysTryTypes": true
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "autoprefixer": "^10.4.1",
+    "babel-loader": "^8.0.0",
+    "core-js": "^3.0.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.6.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss": "^8.4.5",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.2.0",
+    "sass": "1.32",
+    "sass-loader": "^12.4.0",
+    "source-map-loader": "^3.0.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^4.0.0",
+    "typescript-eslint": "^0.0.1-alpha.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.0",
+    "@types/react": "^17.0.38",
+    "@types/react-bootstrap": "^0.32.29",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router": "^5.1.17",
+    "@types/react-router-dom": "^5.3.2",
+    "bootstrap": "^5.0.0",
+    "font-awesome": "^4.7.0",
+    "history": "^5.2.0",
+    "react": "^17.0.0",
+    "react-bootstrap": "^2.0.0-beta.5",
+    "react-dom": "^17.0.0",
+    "react-router": "^6.0.0-beta.2",
+    "react-router-dom": "^6.0.0-beta.2"
+  }
+}
