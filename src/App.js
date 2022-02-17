@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import data from './data/initialData'
 import Layout from './components/layout/Layout';
-import Todos from './components/todos/Todos'
+import Todos from './components/app/Todos'
 import './App.css';
 
 function App() {
