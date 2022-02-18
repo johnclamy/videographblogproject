@@ -1,13 +1,20 @@
-import { useState } from 'react';
-import data from './data/initialData'
-import Layout from './components/layout/Layout';
+import { useState, useEffect } from 'react'
+import { db, collection, getDocs } from './firebase'
+import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
-import './App.css';
 import AddTodo from './components/app/AddTodo';
+import "./App.css";
 
 function App() {
-  const [todos, setTodos] = useState(data);
+  const [todos, setTodos] = useState([]);
   const addTodo = todo => setTodos([...todos, todo])
+
+  useEffect(() => {
+    // collection reference
+    const colRef = collection(db, "todos");
+    // get collection data
+    getDocs(colRef).then((snapshot) => console.log(snapshot.docs));
+  }, [todos]);
 
   return (
     <Layout>
