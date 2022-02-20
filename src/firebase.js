@@ -1,5 +1,12 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc
+} from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -16,4 +23,11 @@ initializeApp(firebaseConfig)
 // database service
 const db = getFirestore()
 
-export { db, collection, getDocs }
+export {
+  db,
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc
+}
