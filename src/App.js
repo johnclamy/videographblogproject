@@ -10,16 +10,20 @@ function App() {
   const addTodo = todo => setTodos([...todos, todo])
 
   useEffect(() => {
-    // collection reference
     const colRef = collection(db, "todos");
-    // get collection data
-    getDocs(colRef).then((snapshot) => console.log(snapshot.docs));
-  }, [todos]);
+    let dbTodos = [];
+
+    getDocs(colRef).then((snapshot) => {
+      snapshot.docs.forEach(doc => dbTodos.push({ ...doc.data(), id: doc.id }))
+    }).catch(err => console.error(err.message))
+
+    setTodos(dbTodos)
+  }, []);
 
   return (
     <Layout>
       <AddTodo onAddTodo={addTodo} />
-      <Todos todos={todos} />
+      <Todos items={todos} />
     </Layout>
   );
 }
