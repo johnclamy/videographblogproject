@@ -5,7 +5,7 @@ const AddTodo = ({ onAddTodo }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    onAddTodo(todo)
+    onAddTodo({ todo })
     setTodo('')
   };
 
