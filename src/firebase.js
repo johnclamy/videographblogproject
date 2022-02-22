@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app'
 import {
   getFirestore,
   collection,
-  onSnapshot,
+  getDocs,
   addDoc,
   deleteDoc,
   doc
@@ -23,7 +23,7 @@ const db = getFirestore(app)
 export {
   db,
   collection,
-  onSnapshot,
+  getDocs,
   addDoc,
   deleteDoc,
   doc
