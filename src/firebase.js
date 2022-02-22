@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app'
 import {
   getFirestore,
   collection,
-  getDocs,
+  onSnapshot,
   addDoc,
   deleteDoc,
   doc
@@ -17,16 +17,13 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_ID,
 };
 
-// init firebase app
-initializeApp(firebaseConfig)
-
-// database service
-const db = getFirestore()
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
 
 export {
   db,
   collection,
-  getDocs,
+  onSnapshot,
   addDoc,
   deleteDoc,
   doc
