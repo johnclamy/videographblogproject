@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { db, collection, getDocs } from './firebase'
+import { db, collection, getDocs, addDoc } from './firebase'
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
 import AddTodo from './components/app/AddTodo';
@@ -8,7 +8,8 @@ import "./App.css";
 function App() {
   const colRef = collection(db, "todos");
   const [todos, setTodos] = useState([]);
-  const addTodo = todo => setTodos([...todos, todo])
+
+  const addTodo = async (todo) => await addDoc(colRef, todo)
 
   useEffect(() => {
     const getTodos = async () => {
