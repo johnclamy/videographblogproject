@@ -6,19 +6,20 @@ import AddTodo from './components/app/AddTodo';
 import "./App.css";
 
 function App() {
+  const colRef = collection(db, "todos");
   const [todos, setTodos] = useState([]);
   const addTodo = todo => setTodos([...todos, todo])
 
   useEffect(() => {
-    const colRef = collection(db, "todos");
-    let dbTodos = [];
+    const getTodos = async () => {
+      const dbTodos = await getDocs(colRef)
+      setTodos(dbTodos.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    }
 
-    getDocs(colRef).then((snapshot) => {
-      snapshot.docs.forEach(doc => dbTodos.push({ ...doc.data(), id: doc.id }))
-    }).catch(err => console.error(err.message))
-
-    setTodos(dbTodos)
+    getTodos()
   }, []);
+
+  console.log(todos)
 
   return (
     <Layout>
