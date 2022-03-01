@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
 import AddTodo from './components/app/AddTodo';
+import Footer from './components/layout/Footer'
 import "./App.css";
 
 const tempTodos = [
@@ -34,6 +35,7 @@ function App() {
     <Layout>
       <AddTodo /* onAddTodo={addTodo} */ />
       <Todos items={todos} />
+      <Footer />
     </Layout>
   );
 }
