@@ -4,7 +4,6 @@ import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
 import AddTodo from './components/app/AddTodo';
 import Footer from './components/layout/Footer'
-import "./App.css";
 
 const tempTodos = [
   { id: '1', todo: 'feed the dog' },
