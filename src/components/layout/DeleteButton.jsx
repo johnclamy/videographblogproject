@@ -1,6 +1,6 @@
-const DeleteButton = () => {
+const DeleteButton = ({ id, onDeleteTodo }) => {
   return (
-    <button>
+    <button onClick={() => onDeleteTodo(id)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-6 w-6"
