@@ -32,14 +32,17 @@ function App() {
     setTodos([...todos, todo])
   }
 
-  const deleteTodo = id => setTodos(todos.filter(todo => todo.id !== id))
+  const deleteTodo = id => {
+    const filteredTodos = todos.filter(todo => todo.id !== id)
+    setTodos(filteredTodos);
+  }
 
   console.log(todos)
 
   return (
     <Layout>
       <AddTodo onAddTodo={addTodo} />
-      <Todos items={todos} />
+      <Todos items={todos} onDeleteTodo={deleteTodo} />
       <Footer />
     </Layout>
   );
