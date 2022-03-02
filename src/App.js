@@ -27,10 +27,12 @@ function App() {
     getTodos()
   }, []);*/
 
-  const addTodo = (todo) => {
+  const addTodo = todo => {
     todo.id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
     setTodos([...todos, todo])
   }
+
+  const deleteTodo = id => setTodos(todos.filter(todo => todo.id !== id))
 
   console.log(todos)
 
