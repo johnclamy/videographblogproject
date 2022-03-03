@@ -37,11 +37,17 @@ function App() {
     setTodos(filteredTodos);
   }
 
+  const deleteTodos = () => {
+    let emptyList = todos
+    emptyList = []
+    setTodos(emptyList)
+  }
+
   return (
     <Layout>
       <AddTodo onAddTodo={addTodo} />
       <Todos items={todos} onDeleteTodo={deleteTodo} />
-      <Footer items={todos} />
+      <Footer items={todos} onDeleteTodos={deleteTodos} />
     </Layout>
   );
 }
