@@ -1,8 +1,8 @@
-const TodoStats = () => {
+const TodoStats = ({ items }) => {
   return (
     <>
       <p className="flex align-middle font-bold capitalize">
-        total: <span className="bg-amber-500 rounded-full px-2 ml-2">5</span>
+        total: <span className="bg-amber-500 rounded-full px-2 ml-2">{items.length}</span>
       </p>
       <p className="flex align-middle font-bold capitalize">
         completed:{" "}
