@@ -37,13 +37,11 @@ function App() {
     setTodos(filteredTodos);
   }
 
-  console.log(todos)
-
   return (
     <Layout>
       <AddTodo onAddTodo={addTodo} />
       <Todos items={todos} onDeleteTodo={deleteTodo} />
-      <Footer />
+      <Footer items={todos} />
     </Layout>
   );
 }
