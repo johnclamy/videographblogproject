@@ -43,10 +43,27 @@ function App() {
     setTodos(emptyList)
   }
 
+  const toggleComplete = id => {
+    const toggledTodos = todos.filter(todo => {
+      if (todo.id === id) {
+        todo.isCompleted = !todo.isCompleted
+        return todo
+      }
+      return todo
+    })
+    setTodos(toggledTodos)
+  }
+
+  console.log(todos)
+
   return (
     <Layout>
       <AddTodo onAddTodo={addTodo} />
-      <Todos items={todos} onDeleteTodo={deleteTodo} />
+      <Todos
+        items={todos}
+        onDeleteTodo={deleteTodo}
+        onToggleComplete={toggleComplete}
+      />
       <Footer items={todos} onDeleteTodos={deleteTodos} />
     </Layout>
   );
