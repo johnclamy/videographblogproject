@@ -2,17 +2,24 @@ import { useState } from 'react'
 import EditButton from "../layout/EditButton";
 import DeleteButton from "../layout/DeleteButton";
 
-const Todo = ({ item, onDeleteTodo }) => {
-  const [lineThrough, setLineThrough] = useState(false)
-  const itemTodo = !lineThrough
-    ? <p>{item.todo}</p>
-    : <p className='line-through'>{item.todo}</p>;
+const Todo = ({ item, onDeleteTodo, onToggleComplete }) => {
+  const [lineThrough, setLineThrough] = useState(false);
+  const itemTodo = !lineThrough ? (
+    <p>{item.todo}</p>
+  ) : (
+    <p className="line-through">{item.todo}</p>
+  );
 
+  const handleClick = id => {
+    setLineThrough(!lineThrough)
+    onToggleComplete(id)
+  }
+ 
   return (
     <li className=" flex flex-row justify-between list-none font-sans text-lg font-medium text-left text-white bg-cyan-400 p-4 my-2">
       <div
         className="cursor-pointer"
-        onClick={() => setLineThrough(!lineThrough)}
+        onClick={() => handleClick(item.id)}
       >
         {itemTodo}
       </div>
@@ -22,6 +29,6 @@ const Todo = ({ item, onDeleteTodo }) => {
       </div>
     </li>
   );
-}
+};
 
 export default Todo
