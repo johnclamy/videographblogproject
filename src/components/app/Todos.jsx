@@ -1,11 +1,15 @@
 import Todo from "./Todo"
 
-const Todos = ({ items, onDeleteTodo }) => {
-  console.log(typeof onDeleteTodo);
+const Todos = ({ items, onDeleteTodo, onToggleComplete }) => {
   const todoList = items.map((item) => {
     return (
       <ul>
-        <Todo key={item.id} item={item} onDeleteTodo={onDeleteTodo} />
+        <Todo
+          key={item.id}
+          item={item}
+          onDeleteTodo={onDeleteTodo}
+          onToggleComplete={onToggleComplete}
+        />
       </ul>
     );
   });
@@ -17,7 +21,7 @@ const Todos = ({ items, onDeleteTodo }) => {
     todoList
   );
 
-  return todosComponent
-}
+  return todosComponent;
+};
 
 export default Todos
