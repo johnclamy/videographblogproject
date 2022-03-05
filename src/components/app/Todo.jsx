@@ -2,7 +2,7 @@ import { useState } from 'react'
 import EditButton from "../layout/EditButton";
 import DeleteButton from "../layout/DeleteButton";
 
-const Todo = ({ item, onDeleteTodo, onToggleComplete }) => {
+const Todo = ({ item, onDeleteTodo, onEditTodo, onToggleComplete }) => {
   const [lineThrough, setLineThrough] = useState(false);
   const itemTodo = !lineThrough ? (
     <p>{item.todo}</p>
@@ -24,7 +24,7 @@ const Todo = ({ item, onDeleteTodo, onToggleComplete }) => {
         {itemTodo}
       </div>
       <div className="flex space-x-4">
-        <EditButton />
+        <EditButton onEditTodo={onEditTodo} />
         <DeleteButton id={item.id} onDeleteTodo={onDeleteTodo} />
       </div>
     </li>

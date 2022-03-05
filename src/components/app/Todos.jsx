@@ -1,12 +1,13 @@
 import Todo from "./Todo"
 
-const Todos = ({ items, onDeleteTodo, onToggleComplete }) => {
+const Todos = ({ items, onDeleteTodo, onEditTodo, onToggleComplete }) => {
   const todoList = items.map((item) => {
     return (
       <ul>
         <Todo
           key={item.id}
           item={item}
+          onEditTodo={onEditTodo}
           onDeleteTodo={onDeleteTodo}
           onToggleComplete={onToggleComplete}
         />

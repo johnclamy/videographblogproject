@@ -32,6 +32,14 @@ function App() {
     setTodos([...todos, todo])
   }
 
+  const editTodo = todo => {
+    if (!todo.isCompleted) {
+      console.log('do something if this todo in not completed')
+    } else {
+      console.log('show a popup notification if the todo item is marked as completed')
+    }
+  }
+
   const deleteTodo = id => {
     const filteredTodos = todos.filter(todo => todo.id !== id)
     setTodos(filteredTodos);
@@ -61,6 +69,7 @@ function App() {
       <AddTodo onAddTodo={addTodo} />
       <Todos
         items={todos}
+        onEditTodo={editTodo}
         onDeleteTodo={deleteTodo}
         onToggleComplete={toggleComplete}
       />
