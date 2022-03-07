@@ -24,7 +24,7 @@ const Todo = ({ item, onDeleteTodo, onEditTodo, onToggleComplete }) => {
         {itemTodo}
       </div>
       <div className="flex space-x-4">
-        <EditButton onEditTodo={onEditTodo} />
+        <EditButton item={item} onEditTodo={onEditTodo} />
         <DeleteButton id={item.id} onDeleteTodo={onDeleteTodo} />
       </div>
     </li>
