@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 // import { db, collection, getDocs, addDoc } from './firebase'
-import { createUniqueId, filterListById } from './helper';
+import { createUniqueId, removeItemFrom } from './helper';
 import tempTodos from './data';
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
@@ -31,7 +31,7 @@ function App() {
     console.log(todo)
   }
 
-  const deleteTodo = id => setTodos(filterListById(todos, id));
+  const deleteTodo = id => setTodos(removeItemFrom(todos, id));
 
   const deleteTodos = () => {
     let emptyList = todos
