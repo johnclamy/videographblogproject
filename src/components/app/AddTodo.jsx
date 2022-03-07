@@ -1,10 +1,10 @@
 import { useState } from "react"
+import AddButton from "../layout/AddButton";
 
 const AddTodo = ({ onAddTodo, editedTodo }) => {
   const [todo, setTodo] = useState("");
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleAddCurrentTodo = () => {
     onAddTodo({ todo });
     setTodo("");
   };
@@ -20,13 +20,7 @@ const AddTodo = ({ onAddTodo, editedTodo }) => {
         onChange={(e) => setTodo(e.target.value)}
         placeholder="what to do next..."
       />
-      <button
-        className="bg-blue-900 hover:bg-blue-400 text-white font-semibold uppercase text-lg p-2 rounded"
-        type="submit"
-        onClick={handleClick}
-      >
-        add todo
-      </button>
+      <AddButton onAddCurrentTodo={handleAddCurrentTodo} />
     </form>
   );
 };
