@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 // import { db, collection, getDocs, addDoc } from './firebase'
-import { filterListById } from './helper';
+import { createUniqueId, filterListById } from './helper';
 import tempTodos from './data';
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
@@ -23,7 +23,7 @@ function App() {
   }, []);*/
 
   const addTodo = todo => {
-    todo.id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+    todo.id = createUniqueId()
     setTodos([...todos, todo])
   }
 
