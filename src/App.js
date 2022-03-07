@@ -10,6 +10,7 @@ import Footer from './components/layout/Footer'
 function App() {
   // const colRef = collection(db, "todos");
   const [todos, setTodos] = useState(tempTodos);
+  const [editedTodo, setEditedTodo] = useState(null)
 
    /* const addTodo = async (todo) => await addDoc(colRef, todo)
 
@@ -28,7 +29,9 @@ function App() {
   }
 
   const editTodo = todo => {
-    console.log(todo)
+    const list = removeItemFrom(todos, todo.id)
+    setEditedTodo(todos.find((item) => item.id === todo.id));
+    setTodos(list)
   }
 
   const deleteTodo = id => setTodos(removeItemFrom(todos, id));
@@ -50,11 +53,9 @@ function App() {
     setTodos(toggledTodos)
   }
 
-  console.log(todos)
-
   return (
     <Layout>
-      <AddTodo onAddTodo={addTodo} />
+      <AddTodo editedTodo={editedTodo} onAddTodo={addTodo} />
       <Todos
         items={todos}
         onEditTodo={editTodo}
