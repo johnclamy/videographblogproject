@@ -1,16 +1,11 @@
 import { useState, useEffect } from 'react'
 // import { db, collection, getDocs, addDoc } from './firebase'
+import { filterListById } from './helper';
+import tempTodos from './data';
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
 import AddTodo from './components/app/AddTodo';
 import Footer from './components/layout/Footer'
-
-const tempTodos = [
-  { id: "5326931883580409", todo: "feed the dog", isCompleted: false },
-  { id: "7296572133983615", todo: "cook breakfast", isCompleted: false },
-  { id: "4821274738313757", todo: "learn a new language", isCompleted: false },
-  { id: "5113042383785769", todo: "walk the dog", isCompleted: false },
-];
 
 function App() {
   // const colRef = collection(db, "todos");
@@ -33,17 +28,10 @@ function App() {
   }
 
   const editTodo = todo => {
-    if (!todo.isCompleted) {
-      console.log('do something if this todo in not completed')
-    } else {
-      console.log('show a popup notification if the todo item is marked as completed')
-    }
+    console.log(todo)
   }
 
-  const deleteTodo = id => {
-    const filteredTodos = todos.filter(todo => todo.id !== id)
-    setTodos(filteredTodos);
-  }
+  const deleteTodo = id => setTodos(filterListById(todos, id));
 
   const deleteTodos = () => {
     let emptyList = todos
