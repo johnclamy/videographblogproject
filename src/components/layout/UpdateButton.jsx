@@ -1,6 +1,8 @@
-const UpdateButton = ({ onAddCurrentTodo }) => {
+const UpdateButton = ({ onAddCurrentTodo, onEmptyEditedTodo }) => {
   const handleClick = (e) => {
     e.preventDefault();
+    onAddCurrentTodo();
+    onEmptyEditedTodo();
   };
 
   return (
