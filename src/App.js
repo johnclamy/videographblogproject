@@ -24,13 +24,17 @@ function App() {
   }, []);*/
 
   const addTodo = todo => {
-    todo.id = createUniqueId()
+    if (!todo.id) {
+      todo.id = createUniqueId().toString()
+      todo.isCompleted = false
+    }
     setTodos([...todos, todo])
   }
 
   const editTodo = todo => {
-    const list = removeItemFrom(todos, todo.id)
-    setEditedTodo(todos.find((item) => item.id === todo.id));
+    const id = todo.id
+    const list = removeItemFrom(todos, id)
+    setEditedTodo(todos.find((item) => item.id === id));
     setTodos(list)
   }
 
@@ -52,6 +56,8 @@ function App() {
     })
     setTodos(toggledTodos)
   }
+
+  console.log( 'editedTodo:', editedTodo);
 
   return (
     <Layout>
