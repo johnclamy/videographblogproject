@@ -23,6 +23,7 @@ const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
     if (editedTodo) {
       setTodo(editedTodo.todo);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
