@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 // import { db, collection, getDocs, addDoc } from './firebase'
 import { createUniqueId, removeItemFrom } from './helper';
 import tempTodos from './data';
@@ -57,11 +57,21 @@ function App() {
     setTodos(toggledTodos)
   }
 
-  console.log( 'editedTodo:', editedTodo);
+  const emptyEditedTodo = () => {
+    if (editedTodo) {
+      let todo = editedTodo
+      todo = null
+      setEditedTodo(todo)
+    }
+  }
 
   return (
     <Layout>
-      <AddTodo editedTodo={editedTodo} onAddTodo={addTodo} />
+      <AddTodo
+        editedTodo={editedTodo}
+        onAddTodo={addTodo}
+        onEmptyEditedTodo={emptyEditedTodo}
+      />
       <Todos
         items={todos}
         onEditTodo={editTodo}
