@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import AddButton from "../layout/AddButton";
 import UpdateButton from "../layout/UpdateButton";
 
-const AddTodo = ({ onAddTodo, editedTodo }) => {
-  const [todo, setTodo] = useState('');
+const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
+  const [todo, setTodo] = useState("");
 
   const handleAddCurrentTodo = () => {
     onAddTodo({ todo });
@@ -15,16 +15,15 @@ const AddTodo = ({ onAddTodo, editedTodo }) => {
   ) : (
     <UpdateButton
       onAddCurrentTodo={handleAddCurrentTodo}
+      onEmptyEditedTodo={onEmptyEditedTodo}
     />
   );
 
   useEffect(() => {
     if (editedTodo) {
-      setTodo(editedTodo.todo)
+      setTodo(editedTodo.todo);
     }
-  }, [])
-
-  console.log('singletodo:', todo)
+  }, []);
 
   return (
     <form className=" flex justify-center my-3 p-6 bg-amber-400">
