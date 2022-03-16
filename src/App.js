@@ -1,18 +1,17 @@
-import { useState } from 'react'
-// import { db, collection, getDocs, addDoc } from './firebase'
+import { useState, useEffect } from 'react'
+import { db, collection, getDocs, addDoc } from './firebase'
 import { createUniqueId, removeItemFrom } from './helper';
-import tempTodos from './data';
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
 import AddTodo from './components/app/AddTodo';
 import Footer from './components/layout/Footer'
 
 function App() {
-  // const colRef = collection(db, "todos");
-  const [todos, setTodos] = useState(tempTodos);
+  const colRef = collection(db, "todos");
+  const [todos, setTodos] = useState([]);
   const [editedTodo, setEditedTodo] = useState(null)
 
-   /* const addTodo = async (todo) => await addDoc(colRef, todo)
+   // const addTodo = async (todo) => await addDoc(colRef, todo)
 
   useEffect(() => {
     const getTodos = async () => {
@@ -21,7 +20,8 @@ function App() {
     }
 
     getTodos()
-  }, []);*/
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const addTodo = todo => {
     if (!todo.id) {
