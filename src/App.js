@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { db, collection, onSnapshot } from './firebase'
-import { removeItemFrom } from './helper';
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
 import AddTodo from './components/app/AddTodo';
@@ -24,12 +23,10 @@ function App() {
 
   const editTodo = (todo) => {
     const id = todo.id;
-    const list = removeItemFrom(todos, id);
+    // const list = removeItemFrom(todos, id);
     setEditedTodo(todos.find((item) => item.id === id));
-    setTodos(list);
+    // setTodos(list);
   };
-
-  const deleteTodo = (id) => setTodos(removeItemFrom(todos, id));
 
   const deleteTodos = () => {
     let emptyList = todos;
@@ -65,7 +62,6 @@ function App() {
       <Todos
         items={todos}
         onEditTodo={editTodo}
-        onDeleteTodo={deleteTodo}
         onToggleComplete={toggleComplete}
       />
       <Footer items={todos} onDeleteTodos={deleteTodos} />
