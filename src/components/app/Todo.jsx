@@ -1,14 +1,20 @@
 import { useState } from 'react'
+import { db, deleteDoc, doc } from '../../firebase'
 import EditButton from "../layout/EditButton";
 import DeleteButton from "../layout/DeleteButton";
 
-const Todo = ({ item, onDeleteTodo, onEditTodo, onToggleComplete }) => {
+const Todo = ({ item, onEditTodo, onToggleComplete }) => {
   const [lineThrough, setLineThrough] = useState(false);
   const itemTodo = !lineThrough ? (
     <p>{item.todo}</p>
   ) : (
     <p className="line-through">{item.todo}</p>
   );
+
+  const deleteTodo = (id) => {
+    const docRef = doc(db, "todos", id);
+    deleteDoc(docRef)
+  };
 
   const handleClick = id => {
     setLineThrough(!lineThrough)
@@ -25,7 +31,7 @@ const Todo = ({ item, onDeleteTodo, onEditTodo, onToggleComplete }) => {
       </div>
       <div className="flex space-x-4">
         <EditButton item={item} onEditTodo={onEditTodo} />
-        <DeleteButton id={item.id} onDeleteTodo={onDeleteTodo} />
+        <DeleteButton id={item.id} onDeleteTodo={deleteTodo} />
       </div>
     </li>
   );
