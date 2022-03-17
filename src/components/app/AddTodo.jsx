@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react"
+import { db, collection, addDoc } from "../../firebase";
 import AddButton from "../layout/AddButton";
 import UpdateButton from "../layout/UpdateButton";
 
-const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
+const AddTodo = ({ editedTodo, onEmptyEditedTodo }) => {
+  const colRef = collection(db, "todos");
   const [todo, setTodo] = useState("");
 
+  const addTodo = async (item) => {
+    item.isCompleted = false;
+    await addDoc(colRef, item);
+  };
+
   const handleAddCurrentTodo = () => {
-    onAddTodo({ todo });
+    addTodo({ todo });
     setTodo("");
   };
 
