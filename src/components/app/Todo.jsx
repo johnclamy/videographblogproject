@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { db, deleteDoc, doc } from '../../firebase'
+import { db, deleteDoc, doc } from "../../firebase";
 import EditButton from "../layout/EditButton";
 import DeleteButton from "../layout/DeleteButton";
 
