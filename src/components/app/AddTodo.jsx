@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { db, collection, addDoc } from "../../firebase";
+import { db, collection, addDoc, serverTimestamp } from "../../firebase";
 import AddButton from "../layout/AddButton";
 import UpdateButton from "../layout/UpdateButton";
 
@@ -9,6 +9,7 @@ const AddTodo = ({ editedTodo, onEmptyEditedTodo }) => {
 
   const addTodo = async (item) => {
     item.isCompleted = false;
+    item.createdAt = serverTimestamp();
     await addDoc(colRef, item);
   };
 
