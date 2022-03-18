@@ -5,7 +5,10 @@ import {
   onSnapshot,
   addDoc,
   deleteDoc,
-  doc
+  doc,
+  query,
+  orderBy,
+  serverTimestamp
 } from 'firebase/firestore'
 
 const firebaseConfig = {
@@ -26,5 +29,8 @@ export {
   onSnapshot,
   addDoc,
   deleteDoc,
-  doc
+  doc,
+  query,
+  orderBy,
+  serverTimestamp
 }
