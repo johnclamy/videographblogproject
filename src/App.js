@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { db, collection, onSnapshot } from './firebase'
+import { db, collection, onSnapshot, query, orderBy } from './firebase'
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
 import AddTodo from './components/app/AddTodo';
@@ -7,11 +7,12 @@ import Footer from './components/layout/Footer'
 
 function App() {
   const colRef = collection(db, "todos");
+  const qryRef = query(colRef, orderBy('createdAt'))
   const [todos, setTodos] = useState([]);
   const [editedTodo, setEditedTodo] = useState(null);
 
   useEffect(() => {
-    onSnapshot(colRef, (snap) => {
+    onSnapshot(qryRef, (snap) => {
       const todos = [];
       snap.docs.forEach((doc) => {
         todos.push({ ...doc.data(), id: doc.id });
