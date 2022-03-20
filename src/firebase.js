@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
 import {
   getFirestore,
   collection,
@@ -22,9 +23,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
+const auth = getAuth();
 
 export {
   db,
+  auth,
   collection,
   onSnapshot,
   addDoc,
@@ -32,5 +35,5 @@ export {
   doc,
   query,
   orderBy,
-  serverTimestamp
+  serverTimestamp,
 }
