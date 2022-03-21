@@ -1,4 +1,4 @@
-const SignOut = () => {
+const SignOutIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,4 +17,4 @@ const SignOut = () => {
   );
 }
 
-export default SignOut
+export default SignOutIcon
