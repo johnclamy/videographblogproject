@@ -1,4 +1,4 @@
-import { useState, /* useEffect */ } from "react"
+import { useState, useEffect } from "react"
 // import { db, collection, addDoc, serverTimestamp } from "../../firebase";
 import AddButton from "../layout/AddButton";
 import UpdateButton from "../layout/UpdateButton";
@@ -26,13 +26,13 @@ const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
       onEmptyEditedTodo={onEmptyEditedTodo}
     />
   );
-/*
+
   useEffect(() => {
     if (editedTodo) {
       setTodo(editedTodo.todo);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); */
+  }, []);
 
   return (
     <form className=" flex justify-center my-3 p-6 bg-amber-400">

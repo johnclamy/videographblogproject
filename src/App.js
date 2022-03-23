@@ -1,6 +1,6 @@
 import { useState, /* useEffect */ } from 'react'
 // import { db, collection, onSnapshot, query, orderBy } from './firebase'
-import { createUniqueId } from './helper'
+import { createUniqueId, removeItemFrom } from './helper'
 import tempTodos from './data';
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
@@ -34,17 +34,14 @@ function App() {
     setTodos([...todos, todo]);
   };
 
-  const deleteTodo = (id) => {
-    const newTodos = todos.filter(item => item.id !== id)
-    setTodos(newTodos)
-  };
-
   const editTodo = (todo) => {
     const id = todo.id;
-    // const list = removeItemFrom(todos, id);
+    const list = removeItemFrom(todos, id);
     setEditedTodo(todos.find((item) => item.id === id));
-    // setTodos(list);
+    setTodos(list);
   };
+
+  const deleteTodo = (id) => setTodos(removeItemFrom(todos, id));  
 
   const deleteTodos = () => {
     let emptyList = todos;

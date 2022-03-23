@@ -10,24 +10,23 @@ const Todo = ({ item, onEditTodo, onDeleteTodo, onToggleComplete }) => {
   ) : (
     <p className="line-through">{item.todo}</p>
   );
-/*
+
+  /*
   const deleteTodo = (id) => {
     const docRef = doc(db, "todos", id);
     deleteDoc(docRef)
+  }; */
+
+  const handleClick = (id) => {
+    setLineThrough(!lineThrough);
+    onToggleComplete(id);
   };
 
-  const handleClick = id => {
-    setLineThrough(!lineThrough)
-    onToggleComplete(id)
-  } */
-
-
- 
   return (
     <li className=" flex flex-row justify-between list-none font-sans text-lg font-medium text-left text-white bg-cyan-400 p-4 my-2">
       <div
         className="cursor-pointer"
-        // onClick={() => handleClick(item.id)}
+        onClick={() => handleClick(item.id)}
       >
         {itemTodo}
       </div>
