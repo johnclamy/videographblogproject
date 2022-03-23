@@ -3,7 +3,7 @@ import { useState, /* useEffect */ } from "react"
 import AddButton from "../layout/AddButton";
 import UpdateButton from "../layout/UpdateButton";
 
-const AddTodo = ({ addTodo, editedTodo, onEmptyEditedTodo }) => {
+const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
   // const colRef = collection(db, "todos");
   const [todo, setTodo] = useState("");
 /*
@@ -14,7 +14,7 @@ const AddTodo = ({ addTodo, editedTodo, onEmptyEditedTodo }) => {
   }; */
 
   const handleAddCurrentTodo = () => {
-    addTodo({ todo });
+    onAddTodo({ todo });
     setTodo("");
   };
 

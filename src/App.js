@@ -27,10 +27,12 @@ function App() {
   }, []) */
 
   const addTodo = (todo) => {
-    todo.id = createUniqueId()
-    todo.isCompleted = false
-    setTodos(...todos, todo)
-  }
+    if (!todo.id) {
+      todo.id = createUniqueId().toString();
+      todo.isCompleted = false;
+    }
+    setTodos([...todos, todo]);
+  };
 
   const deleteTodo = (id) => {
     const newTodos = todos.filter(item => item.id !== id)
@@ -72,7 +74,7 @@ function App() {
   return (
     <Layout>
       <AddTodo
-        addTodo={addTodo}
+        onAddTodo={addTodo}
         editedTodo={editedTodo}
         onEmptyEditedTodo={emptyEditedTodo}
       />
