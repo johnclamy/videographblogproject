@@ -1,4 +1,5 @@
 import Todo from "./Todo"
+import StatusAlert from '../layout/StatusAlert'
 
 const Todos = ({ items, onDeleteTodo, onEditTodo, onToggleComplete }) => {
   const todoList = items.map((item) => {
@@ -15,9 +16,7 @@ const Todos = ({ items, onDeleteTodo, onEditTodo, onToggleComplete }) => {
     );
   });
   const todosComponent = !items.length ? (
-    <p className="p-5 rounded-lg text-center text-2xl font-bold bg-teal-300 max-w-screen-sm">
-      At present you have no to-dos.
-    </p>
+    <StatusAlert>At present you have no to-dos.</StatusAlert>
   ) : (
     todoList
   );
