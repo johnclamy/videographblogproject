@@ -1,16 +1,19 @@
-import { useState, useEffect } from 'react'
-import { db, collection, onSnapshot, query, orderBy } from './firebase'
+import { useState, /* useEffect */ } from 'react'
+// import { db, collection, onSnapshot, query, orderBy } from './firebase'
+import { createUniqueId } from './helper'
+import tempTodos from './data';
 import Layout from "./components/layout/Layout";
 import Todos from './components/app/Todos'
 import AddTodo from './components/app/AddTodo';
 import Footer from './components/layout/Footer'
 
 function App() {
-  const colRef = collection(db, "todos");
-  const qryRef = query(colRef, orderBy('createdAt'))
-  const [todos, setTodos] = useState([]);
+  // const colRef = collection(db, "todos");
+  // const qryRef = query(colRef, orderBy('createdAt'))
+  const [todos, setTodos] = useState(tempTodos);
   const [editedTodo, setEditedTodo] = useState(null);
 
+  /*
   useEffect(() => {
     onSnapshot(qryRef, (snap) => {
       const todos = [];
@@ -20,7 +23,19 @@ function App() {
       setTodos(todos);
       console.log(todos);
     });
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) */
+
+  const addTodo = (todo) => {
+    todo.id = createUniqueId()
+    todo.isCompleted = false
+    setTodos(...todos, todo)
+  }
+
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter(item => item.id !== id)
+    setTodos(newTodos)
+  };
 
   const editTodo = (todo) => {
     const id = todo.id;
@@ -57,11 +72,13 @@ function App() {
   return (
     <Layout>
       <AddTodo
+        addTodo={addTodo}
         editedTodo={editedTodo}
         onEmptyEditedTodo={emptyEditedTodo}
       />
       <Todos
         items={todos}
+        onDeleteTodo={deleteTodo}
         onEditTodo={editTodo}
         onToggleComplete={toggleComplete}
       />
