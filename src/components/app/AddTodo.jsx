@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 // import { db, collection, addDoc, serverTimestamp } from "../../firebase";
 import AddButton from "../layout/AddButton";
 import UpdateButton from "../layout/UpdateButton";
 
-const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
+const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo, signedIn }) => {
   // const colRef = collection(db, "todos");
   const [todo, setTodo] = useState("");
-/*
+  /*
   const addTodo = async (item) => {
     item.isCompleted = false;
     item.createdAt = serverTimestamp();
@@ -19,7 +19,7 @@ const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
   };
 
   const toggleButton = !editedTodo ? (
-    <AddButton onAddCurrentTodo={handleAddCurrentTodo} />
+    <AddButton onAddCurrentTodo={handleAddCurrentTodo} signedIn={signedIn} />
   ) : (
     <UpdateButton
       onAddCurrentTodo={handleAddCurrentTodo}
@@ -31,7 +31,7 @@ const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
     if (editedTodo) {
       setTodo(editedTodo.todo);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -40,6 +40,7 @@ const AddTodo = ({ onAddTodo, editedTodo, onEmptyEditedTodo }) => {
         className="border py-2 px-3 text-gray-900"
         type="input"
         value={todo}
+        disabled={!signedIn}
         onChange={(e) => setTodo(e.target.value)}
         placeholder={editedTodo ? editedTodo.todo : "what to do next..."}
       />
