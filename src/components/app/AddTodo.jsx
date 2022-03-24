@@ -10,7 +10,7 @@ const AddTodo = ({
   onEmptyEditedTodo,
   signedIn,
   showTooltip,
-  onToggleShowTooltip,
+  onToggleShowTooltip
 }) => {
   // const colRef = collection(db, "todos");
   const [todo, setTodo] = useState("");
