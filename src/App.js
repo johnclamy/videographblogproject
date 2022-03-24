@@ -14,6 +14,7 @@ function App() {
   const [editedTodo, setEditedTodo] = useState(null);
   const [signedIn, setSignedIn] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false)
+  const [showButtonTooltip, setShowButtonTooltip] = useState(false)
 
   /*
   useEffect(() => {
@@ -72,6 +73,8 @@ function App() {
 
   const handleToggleSignIn = () => setSignedIn(!signedIn)
   const handleToggleShowTooltip = () => setShowTooltip(!showTooltip);
+  const handleToggleShowButtonTooltip = () =>
+    setShowButtonTooltip(!showButtonTooltip);
 
   return (
     <Layout>
@@ -79,7 +82,6 @@ function App() {
         onAddTodo={addTodo}
         editedTodo={editedTodo}
         signedIn={signedIn}
-        onToggleSignIn={handleToggleSignIn}
         onEmptyEditedTodo={emptyEditedTodo}
         showTooltip={showTooltip}
         onToggleShowTooltip={handleToggleShowTooltip}
@@ -89,10 +91,15 @@ function App() {
         onDeleteTodo={deleteTodo}
         onEditTodo={editTodo}
         signedIn={signedIn}
-        onToggleSignIn={handleToggleSignIn}
         onToggleComplete={toggleComplete}
       />
-      <Footer items={todos} onDeleteTodos={deleteTodos} />
+      <Footer
+        items={todos}
+        onDeleteTodos={deleteTodos}
+        signedIn={signedIn}
+        showButtonTooltip={showButtonTooltip}
+        onToggleShowButtonTooltip={handleToggleShowButtonTooltip}
+      />
     </Layout>
   );
 }
