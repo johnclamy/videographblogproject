@@ -12,6 +12,7 @@ function App() {
   // const qryRef = query(colRef, orderBy('createdAt'))
   const [todos, setTodos] = useState(tempTodos);
   const [editedTodo, setEditedTodo] = useState(null);
+  const [signedIn, setSignedIn] = useState(false)
 
   /*
   useEffect(() => {
@@ -73,12 +74,14 @@ function App() {
       <AddTodo
         onAddTodo={addTodo}
         editedTodo={editedTodo}
+        signedIn={signedIn}
         onEmptyEditedTodo={emptyEditedTodo}
       />
       <Todos
         items={todos}
         onDeleteTodo={deleteTodo}
         onEditTodo={editTodo}
+        signedIn={signedIn}
         onToggleComplete={toggleComplete}
       />
       <Footer items={todos} onDeleteTodos={deleteTodos} />
