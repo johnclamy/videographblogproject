@@ -13,6 +13,7 @@ function App() {
   const [todos, setTodos] = useState(tempTodos);
   const [editedTodo, setEditedTodo] = useState(null);
   const [signedIn, setSignedIn] = useState(false)
+  const [showTooltip, setShowTooltip] = useState(false)
 
   /*
   useEffect(() => {
@@ -69,19 +70,26 @@ function App() {
     }
   };
 
+  const handleToggleSignIn = () => setSignedIn(!signedIn)
+  const handleToggleShowTooltip = () => setShowTooltip(!showTooltip);
+
   return (
     <Layout>
       <AddTodo
         onAddTodo={addTodo}
         editedTodo={editedTodo}
         signedIn={signedIn}
+        onToggleSignIn={handleToggleSignIn}
         onEmptyEditedTodo={emptyEditedTodo}
+        showTooltip={showTooltip}
+        onToggleShowTooltip={handleToggleShowTooltip}
       />
       <Todos
         items={todos}
         onDeleteTodo={deleteTodo}
         onEditTodo={editTodo}
         signedIn={signedIn}
+        onToggleSignIn={handleToggleSignIn}
         onToggleComplete={toggleComplete}
       />
       <Footer items={todos} onDeleteTodos={deleteTodos} />
