@@ -1,7 +1,7 @@
 import Todo from "./Todo"
 import StatusAlert from '../layout/StatusAlert'
 
-const Todos = ({ items, onDeleteTodo, onEditTodo, onToggleComplete }) => {
+const Todos = ({ items, signedIn, onDeleteTodo, onEditTodo, onToggleComplete }) => {
   const todoList = items.map((item) => {
     return (
       <ul>
@@ -21,7 +21,7 @@ const Todos = ({ items, onDeleteTodo, onEditTodo, onToggleComplete }) => {
     todoList
   );
 
-  return todosComponent;
+  return signedIn ? todosComponent : <StatusAlert>Please Sign in to access your To-dos.</StatusAlert>;
 };
 
 export default Todos
