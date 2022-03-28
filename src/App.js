@@ -1,33 +1,19 @@
-import { useState, /* useEffect */ } from 'react'
-// import { db, collection, onSnapshot, query, orderBy } from './firebase'
-import { createUniqueId, removeItemFrom } from './helper'
-import tempTodos from './data';
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { createUniqueId, removeItemFrom } from "./helper";
 import Layout from "./components/layout/Layout";
-import Todos from './components/app/Todos'
-import AddTodo from './components/app/AddTodo';
-import Footer from './components/layout/Footer'
+import HomePage from "./components/pages/Home";
+import SigninPage from "./components/pages/Signin";
+import SignUpPage from "./components/pages/SignUp";
+import Footer from "./components/layout/Footer";
+import tempTodos from "./data";
 
 function App() {
-  // const colRef = collection(db, "todos");
-  // const qryRef = query(colRef, orderBy('createdAt'))
   const [todos, setTodos] = useState(tempTodos);
   const [editedTodo, setEditedTodo] = useState(null);
-  const [signedIn, setSignedIn] = useState(false)
-  const [showTooltip, setShowTooltip] = useState(false)
-  const [showButtonTooltip, setShowButtonTooltip] = useState(false)
-
-  /*
-  useEffect(() => {
-    onSnapshot(qryRef, (snap) => {
-      const todos = [];
-      snap.docs.forEach((doc) => {
-        todos.push({ ...doc.data(), id: doc.id });
-      });
-      setTodos(todos);
-      console.log(todos);
-    });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) */
+  const [signedIn, setSignedIn] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [showButtonTooltip, setShowButtonTooltip] = useState(false);
 
   const addTodo = (todo) => {
     if (!todo.id) {
@@ -44,7 +30,7 @@ function App() {
     setTodos(list);
   };
 
-  const deleteTodo = (id) => setTodos(removeItemFrom(todos, id));  
+  const deleteTodo = (id) => setTodos(removeItemFrom(todos, id));
 
   const deleteTodos = () => {
     let emptyList = todos;
@@ -71,36 +57,45 @@ function App() {
     }
   };
 
-  const handleToggleSignIn = () => setSignedIn(!signedIn)
+  const handleToggleSignIn = () => setSignedIn(!signedIn);
   const handleToggleShowTooltip = () => setShowTooltip(!showTooltip);
   const handleToggleShowButtonTooltip = () =>
     setShowButtonTooltip(!showButtonTooltip);
 
   return (
-    <Layout>
-      <AddTodo
-        onAddTodo={addTodo}
-        editedTodo={editedTodo}
-        signedIn={signedIn}
-        onEmptyEditedTodo={emptyEditedTodo}
-        showTooltip={showTooltip}
-        onToggleShowTooltip={handleToggleShowTooltip}
-      />
-      <Todos
-        items={todos}
-        onDeleteTodo={deleteTodo}
-        onEditTodo={editTodo}
-        signedIn={signedIn}
-        onToggleComplete={toggleComplete}
-      />
-      <Footer
-        items={todos}
-        onDeleteTodos={deleteTodos}
-        signedIn={signedIn}
-        showButtonTooltip={showButtonTooltip}
-        onToggleShowButtonTooltip={handleToggleShowButtonTooltip}
-      />
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                onAddTodo={addTodo}
+                editedTodo={editedTodo}
+                signedIn={signedIn}
+                onEmptyEditedTodo={emptyEditedTodo}
+                showTooltip={showTooltip}
+                onToggleShowTooltip={handleToggleShowTooltip}
+                items={todos}
+                onDeleteTodo={deleteTodo}
+                onEditTodo={editTodo}
+                onToggleComplete={toggleComplete}
+              />
+            }
+          />
+          <Route path="/signin" element={<SigninPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+        </Routes>
+
+        <Footer
+          items={todos}
+          onDeleteTodos={deleteTodos}
+          signedIn={signedIn}
+          showButtonTooltip={showButtonTooltip}
+          onToggleShowButtonTooltip={handleToggleShowButtonTooltip}
+        />
+      </Layout>
+    </BrowserRouter>
   );
 }
 
