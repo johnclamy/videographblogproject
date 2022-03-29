@@ -1,3 +1,7 @@
-const SignUpPage = () => <div>The sign up page</div>
+import SignUpForm from '../layout/SignUpForm'
+
+const SignUpPage = () => {
+  return <SignUpForm />
+}
 
 export default SignUpPage;
