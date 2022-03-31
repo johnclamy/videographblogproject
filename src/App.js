@@ -62,6 +62,8 @@ function App() {
   const handleToggleShowButtonTooltip = () =>
     setShowButtonTooltip(!showButtonTooltip);
 
+  console.log('User is signed in?', signedIn)
+
   return (
     <BrowserRouter>
       <Layout>
@@ -83,7 +85,10 @@ function App() {
               />
             }
           />
-          <Route path="/signin" element={<SigninPage />} />
+          <Route
+            path="/signin"
+            element={<SigninPage onToggleSignin={handleToggleSignIn} />}
+          />
           <Route path="/signup" element={<SignUpPage />} />
         </Routes>
 

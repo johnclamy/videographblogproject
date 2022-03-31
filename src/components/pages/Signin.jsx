@@ -1,10 +1,10 @@
 import SigninForm from '../layout/SigninForm'
 import SignUpLink from '../layout/SignUpLink' 
 
-const SigninPage = () => {
+const SigninPage = ({ onToggleSignin }) => {
   return (
     <>
-      <SigninForm />
+      <SigninForm onToggleSignin={onToggleSignin} />
       <SignUpLink />
     </>
   );
