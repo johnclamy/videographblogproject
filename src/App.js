@@ -66,7 +66,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Layout>
+      <Layout signedIn={signedIn}>
         <Routes>
           <Route
             path="/"
