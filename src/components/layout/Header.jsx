@@ -1,12 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SigninIcon from './SigninIcon';
 import SignOutIcon from './SignOutIcon'
 
-const Header = ({ signedIn, onToggleSignin }) => {
+const Header = ({ signedIn, onToggleSignIn }) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    onToggleSignIn();
+    navigate("/");
+  };
+
   const authIcon = signedIn ? (
-    <Link to="/">
+    <button type='button' onClick={handleClick}>
       <SignOutIcon />
-    </Link>
+    </button>
   ) : (
     <Link to="/signin">
       <SigninIcon />
