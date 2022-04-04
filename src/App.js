@@ -66,7 +66,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Layout signedIn={signedIn}>
+      <Layout signedIn={signedIn} onToggleSignIn={handleToggleSignIn}>
         <Routes>
           <Route
             path="/"
