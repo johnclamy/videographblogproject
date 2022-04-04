@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import SigninIcon from './SigninIcon';
 import SignOutIcon from './SignOutIcon'
 
-const Header = ({ signedIn }) => {
+const Header = ({ signedIn, onToggleSignin }) => {
   const authIcon = signedIn ? (
-    <Link to="/signout">
+    <Link to="/">
       <SignOutIcon />
     </Link>
   ) : (
@@ -20,6 +20,6 @@ const Header = ({ signedIn }) => {
       {authIcon}
     </header>
   );
-}
+};
 
 export default Header
