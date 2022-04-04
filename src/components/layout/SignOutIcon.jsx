@@ -15,6 +15,6 @@ const SignOutIcon = () => {
       />
     </svg>
   );
-}
+};
 
 export default SignOutIcon
