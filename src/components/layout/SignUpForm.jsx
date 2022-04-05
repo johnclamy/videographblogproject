@@ -1,24 +1,22 @@
 import { useState } from 'react'
 
-const SignUpForm = () => {
-  const [username, setUsername] = useState('')
-  const [passwordOne, setPasswordOne] = useState('')
+const SignUpForm = ({ onToggleSignin }) => {
+  const [username, setUsername] = useState("");
+  const [passwordOne, setPasswordOne] = useState("");
   const [passwordTwo, setPasswordTwo] = useState("");
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   const isInValid =
-    username === '' ||
-    passwordOne === '' ||
-    passwordOne !== passwordTwo
-  
-  const handleSubmit = e => {
-    e.preventDefault()
-    
-    console.log(username, passwordOne, error)
-    setUsername('')
-    setPasswordOne('')
-    setPasswordTwo('')
-    setError(null)
-  }
+    username === "" || passwordOne === "" || passwordOne !== passwordTwo;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onToggleSignin();
+    console.log(username, passwordOne, error);
+    setUsername("");
+    setPasswordOne("");
+    setPasswordTwo("");
+    setError(null);
+  };
 
   return (
     <>
@@ -36,7 +34,7 @@ const SignUpForm = () => {
               className="border py-2 px-3 text-gray-900"
               type="text"
               value={username}
-              onChange={e => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="flex justify-between">
@@ -48,7 +46,7 @@ const SignUpForm = () => {
               className="border py-2 px-3 text-gray-900"
               type="password"
               value={passwordOne}
-              onChange={e => setPasswordOne(e.target.value)}
+              onChange={(e) => setPasswordOne(e.target.value)}
             />
           </div>
           <div className="flex justify-between">
@@ -60,7 +58,7 @@ const SignUpForm = () => {
               className="border py-2 px-3 text-gray-900"
               type="password"
               value={passwordTwo}
-              onChange={e => setPasswordTwo(e.target.value)}
+              onChange={(e) => setPasswordTwo(e.target.value)}
             />
           </div>
           <button
@@ -75,6 +73,6 @@ const SignUpForm = () => {
       {error && <p>{error.message}</p>}
     </>
   );
-}
+};
 
 export default SignUpForm
