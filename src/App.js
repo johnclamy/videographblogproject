@@ -94,7 +94,10 @@ function App() {
               />
             }
           />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route
+            path="/signup"
+            element={<SignUpPage onToggleSignin={handleToggleSignIn} />}
+          />
         </Routes>
 
         <Footer
