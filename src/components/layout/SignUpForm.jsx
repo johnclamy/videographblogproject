@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { signUserUp } from '../auth'
 
 const SignUpForm = ({ onToggleSignin }) => {
   const [email, setEmail] = useState("");
@@ -10,8 +11,8 @@ const SignUpForm = ({ onToggleSignin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    signUserUp(email, passwordOne);
     onToggleSignin();
-    console.log(email, passwordOne, error);
     setEmail("");
     setPasswordOne("");
     setPasswordTwo("");
