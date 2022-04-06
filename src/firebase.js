@@ -1,5 +1,10 @@
-import { initializeApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import {
   getFirestore,
   collection,
@@ -9,8 +14,8 @@ import {
   doc,
   query,
   orderBy,
-  serverTimestamp
-} from 'firebase/firestore'
+  serverTimestamp,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -21,8 +26,8 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 const auth = getAuth();
 
 export {
@@ -36,4 +41,7 @@ export {
   query,
   orderBy,
   serverTimestamp,
-}
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+};
