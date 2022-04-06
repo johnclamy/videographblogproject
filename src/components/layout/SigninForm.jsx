@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 const SigninForm = ({ signedIn, onToggleSignin }) => {
   const navigate = useNavigate()
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onToggleSignin();
-    console.log(username, password);
-    setUsername("");
+    console.log(email, password);
+    setEmail("");
     setPassword("");
     navigate('/')
   };
@@ -31,9 +31,9 @@ const SigninForm = ({ signedIn, onToggleSignin }) => {
           <input
             id="username"
             className="border py-2 px-3 text-gray-900"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="flex justify-between">
