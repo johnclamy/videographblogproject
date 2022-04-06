@@ -1,18 +1,18 @@
 import { useState } from 'react'
 
 const SignUpForm = ({ onToggleSignin }) => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [passwordOne, setPasswordOne] = useState("");
   const [passwordTwo, setPasswordTwo] = useState("");
   const [error, setError] = useState(null);
   const isInValid =
-    username === "" || passwordOne === "" || passwordOne !== passwordTwo;
+    email === "" || passwordOne === "" || passwordOne !== passwordTwo;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onToggleSignin();
-    console.log(username, passwordOne, error);
-    setUsername("");
+    console.log(email, passwordOne, error);
+    setEmail("");
     setPasswordOne("");
     setPasswordTwo("");
     setError(null);
@@ -33,8 +33,8 @@ const SignUpForm = ({ onToggleSignin }) => {
               id="username"
               className="border py-2 px-3 text-gray-900"
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="flex justify-between">
