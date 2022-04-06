@@ -25,11 +25,11 @@ const SigninForm = ({ signedIn, onToggleSignin }) => {
       </h1>
       <div className=" flex flex-col p-8 bg-slate-50 max-w-md">
         <div className="flex justify-between align-center">
-          <label className="text-md text-gray-800" htmlFor="username">
-            username
+          <label className="text-md text-gray-800" htmlFor="email">
+            email
           </label>
           <input
-            id="username"
+            id="email"
             className="border py-2 px-3 text-gray-900"
             type="email"
             value={email}
