@@ -13,13 +13,14 @@ const SigninForm = ({ onToggleSignin }) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        onToggleSignin();
+        navigate("/");
+        console.log(`welcome back ${user.email}`);
       })
       .catch((err) => setError(err.message));
-    onToggleSignin();
+    
     setEmail("");
     setPassword("");
-    navigate('/')
   };
 
   return (
