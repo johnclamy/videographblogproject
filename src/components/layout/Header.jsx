@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { signUserOut } from '../auth'
+import { auth, signOut } from "../../firebase";
 import SigninIcon from './SigninIcon';
 import SignOutIcon from './SignOutIcon'
 
@@ -8,7 +8,11 @@ const Header = ({ signedIn, onToggleSignIn }) => {
 
   const handleClick = () => {
     if (signedIn) {
-      signUserOut()
+      signOut(auth)
+        .then(() => {
+          console.log("User was signed out successfully");
+        })
+        .catch((err) => console.error(err.message));
     }
     onToggleSignIn();
     navigate("/");
