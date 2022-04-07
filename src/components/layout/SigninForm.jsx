@@ -17,8 +17,7 @@ const SigninForm = ({ onToggleSignin }) => {
         navigate("/");
         console.log(`welcome back ${user.email}`);
       })
-      .catch((err) => setError(`Failed to sign in.  - ${err.message}`));
-    
+      .catch((err) => setError(`Failed to sign in`));
     setEmail("");
     setPassword("");
   };
@@ -63,9 +62,9 @@ const SigninForm = ({ onToggleSignin }) => {
           >
             sign in
           </button>
+          {error && <p className="bg-white py-2 px-5 text-center text-red-600 font-bold">{error}</p>}
         </div>
       </form>
-      {error && <p>{error}</p>}
     </>
   );
 };

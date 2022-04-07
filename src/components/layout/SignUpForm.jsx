@@ -21,7 +21,7 @@ const SignUpForm = ({ onToggleSignin }) => {
         navigate("/");
       })
       .catch((err) => {
-        setError(`Failed to sign up.  - ${err.message}`);
+        setError(`Failed to sign up.`);
       });
     
     setEmail("");
@@ -73,7 +73,7 @@ const SignUpForm = ({ onToggleSignin }) => {
             />
           </div>
           <button
-            type='submit'
+            type="submit"
             disabled={isInValid}
             onClick={handleSubmit}
             className="mt-6 py-2 px-4 bg-slate-400 hover:bg-slate-600 text-white uppercase"
@@ -82,7 +82,11 @@ const SignUpForm = ({ onToggleSignin }) => {
           </button>
         </div>
       </form>
-      {error && <p>{error}</p>}
+      {error && (
+        <p className="bg-white py-2 px-5 text-center text-red-600 font-bold">
+          {error}
+        </p>
+      )}
     </>
   );
 };
