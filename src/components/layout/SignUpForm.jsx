@@ -1,22 +1,29 @@
 import { useState } from 'react'
-import { signUserUp } from '../auth'
+import { useNavigate } from "react-router-dom";
+import { auth, createUserWithEmailAndPassword } from '../../firebase'
 
 const SignUpForm = ({ onToggleSignin }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [passwordOne, setPasswordOne] = useState("");
   const [passwordTwo, setPasswordTwo] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(""); 
   const isInValid =
     email === "" || passwordOne === "" || passwordOne !== passwordTwo;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUserUp(email, passwordOne);
+    createUserWithEmailAndPassword(auth, email, passwordOne)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((err) => setError(err.message));
     onToggleSignin();
     setEmail("");
     setPasswordOne("");
     setPasswordTwo("");
-    setError(null);
+    navigate("/");
   };
 
   return (
@@ -63,6 +70,7 @@ const SignUpForm = ({ onToggleSignin }) => {
             />
           </div>
           <button
+            type='submit'
             disabled={isInValid}
             onClick={handleSubmit}
             className="mt-6 py-2 px-4 bg-slate-400 hover:bg-slate-600 text-white uppercase"
@@ -71,7 +79,7 @@ const SignUpForm = ({ onToggleSignin }) => {
           </button>
         </div>
       </form>
-      {error && <p>{error.message}</p>}
+      {error && <p>{error}</p>}
     </>
   );
 };
