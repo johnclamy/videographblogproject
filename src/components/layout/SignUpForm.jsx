@@ -16,14 +16,17 @@ const SignUpForm = ({ onToggleSignin }) => {
     createUserWithEmailAndPassword(auth, email, passwordOne)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        console.log(user.email, ' has been added successfully');
+        onToggleSignin();
+        navigate("/");
       })
-      .catch((err) => setError(err.message));
-    onToggleSignin();
+      .catch((err) => {
+        setError(`Failed to sign up.  - ${err.message}`);
+      });
+    
     setEmail("");
     setPasswordOne("");
     setPasswordTwo("");
-    navigate("/");
   };
 
   return (
