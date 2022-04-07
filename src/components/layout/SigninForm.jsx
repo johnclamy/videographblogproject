@@ -17,7 +17,7 @@ const SigninForm = ({ onToggleSignin }) => {
         navigate("/");
         console.log(`welcome back ${user.email}`);
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => setError(`Failed to sign in.  - ${err.message}`));
     
     setEmail("");
     setPassword("");
