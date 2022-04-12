@@ -1,3 +1,5 @@
+import MenuButton from "../components/MenuButton";
+
 const AuthLinks = () => {
   return (
     <div className="flex items-center space-x-3">
@@ -13,6 +15,7 @@ const AuthLinks = () => {
       >
         Sign In
       </a>
+      <MenuButton />
     </div>
   );
 }
