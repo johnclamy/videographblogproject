@@ -5,12 +5,6 @@ const TodoLinks = () => {
         href="/"
         className="py-4 px-2 text-black font-semibold border-b-4 border-orange-600"
       >
-        Landing
-      </a>
-      <a
-        href="/"
-        className="py-4 px-2 text-blue-900 font-semibold hover:text-orange-600 transition duration-300"
-      >
         Home
       </a>
       <a
