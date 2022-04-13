@@ -1,6 +1,6 @@
-const MenuButton = () => (
+const MenuButton = ({ onToggleMenu  }) => (
   <div className="md:hidden flex items-center">
-    <button className="outline-none mobile-nemu-button">
+    <button className="outline-none mobile-nemu-button" onClick={onToggleMenu}>
       <svg
         className="w-6 h-6 text-gray-500"
         x-show="!showMenu"
