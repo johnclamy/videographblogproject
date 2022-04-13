@@ -1,6 +1,6 @@
 import MenuButton from "../components/MenuButton";
 
-const AuthLinks = () => {
+const AuthLinks = ({ toggleMenu }) => {
   return (
     <div className="flex items-center space-x-3">
       <a
@@ -15,9 +15,9 @@ const AuthLinks = () => {
       >
         Sign In
       </a>
-      <MenuButton />
+      <MenuButton onToggleMenu={toggleMenu} />
     </div>
   );
-}
+};
 
 export default AuthLinks
