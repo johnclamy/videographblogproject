@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useNavigate } from 'react-router-dom'
 
 const Landing = () => {
@@ -17,8 +18,7 @@ const Landing = () => {
         <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
           <div className="rounded-md shadow">
             <a
-              href="/"
-              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 md:py-4 md:text-lg md:px-10"
+              className="cursor-pointer w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 md:py-4 md:text-lg md:px-10"
               onClick={() => navigate("/signin")}
             >
               Sign In
@@ -26,8 +26,7 @@ const Landing = () => {
           </div>
           <div className="mt-3 sm:mt-0 sm:ml-3">
             <a
-              href="/"
-              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-600 bg-gray-100 hover:bg-gray-200 md:py-4 md:text-lg md:px-10"
+              className="cursor-pointer w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-600 bg-gray-100 hover:bg-gray-200 md:py-4 md:text-lg md:px-10"
               onClick={() => navigate("/signup")}
             >
               Sign Up
