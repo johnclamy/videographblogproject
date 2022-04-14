@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useNavigate } from 'react-router-dom'
-import MenuButton from "../components/MenuButton";
 
 const AuthLinks = ({ toggleMenu }) => {
   const navigate = useNavigate()
@@ -14,10 +13,9 @@ const AuthLinks = ({ toggleMenu }) => {
       </a>
       <a
         onClick={() => navigate('/signin')}
-        className="cursor-pointer py-2 px-2 font-medium text-white bg-orange-600 rounded hover:bg-orange-600 transition duration-300">
+        className="cursor-pointer py-2 px-2 font-medium text-white bg-orange-600 rounded hover:bg-orange-700 transition duration-300">
         Sign In
       </a>
-      <MenuButton onToggleMenu={toggleMenu} />
     </div>
   );
 };
