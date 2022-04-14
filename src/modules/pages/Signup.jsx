@@ -35,12 +35,7 @@ const Signup = () => {
             Sign up to create an account
           </h2>
         </div>
-        <form
-          onSubmit={handleSubmit}
-          className="mt-8 space-y-6"
-          action="#"
-          method="POST"
-        >
+        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -84,22 +79,7 @@ const Signup = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-              />
-              <label
-                htmlFor="remember-me"
-                className="ml-2 block text-sm text-gray-900"
-              >
-                Remember me
-              </label>
-            </div>
-
+          <div className="flex items-center justify-center">
             <div className="text-sm">
               Already have an account?{" "}
               <Link
