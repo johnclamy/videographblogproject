@@ -20,7 +20,7 @@ const Signin = () => {
             Or{" "}
             <a
               onClick={() => navigate('/signup')}
-              className="font-medium text-indigo-600 hover:text-indigo-500"
+              className=" cursor-pointer font-medium text-indigo-600 hover:text-indigo-500"
             >
               sign up if you do not have an account
             </a>
