@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { AuthContextProvider } from "./modules/auth/authContext";
 import Navbar from './modules/layout/Navbar'
 import LandingPage from './modules/pages/Landing'
 import HomePage from './modules/pages/Home'
@@ -10,7 +11,7 @@ import EditTodoPage from './modules/pages/EditTodo'
 
 function App() {
   return (
-    <>
+    <AuthContextProvider>
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -21,7 +22,7 @@ function App() {
         <Route path="/add-todo" element={<AddTodoPage />} />
         <Route path="/edit-todo" element={<EditTodoPage />} />
       </Routes>
-    </>
+    </AuthContextProvider>
   );
 }
 
