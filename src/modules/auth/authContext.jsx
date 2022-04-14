@@ -26,11 +26,14 @@ const AuthContextProvider = ({ children }) => {
   const logout = () => signOut(auth)
 
   useEffect(() => {
-    // eslint-disable-next-line no-unused-vars
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       console.log(currentUser)
       setUser(currentUser)
     })
+
+    return () => {
+      unsubscribe()
+    }
   }, [])
 
   return <UserContext.Provider value={{
