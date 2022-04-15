@@ -100,7 +100,11 @@ const Signup = () => {
               Sign up
             </button>
           </div>
-          {error && <p>{error.message}</p>}
+          {error && (
+            <p className="text-center text-lg text-red-600 font-semibold">
+              {error.message}
+            </p>
+          )}
         </form>
       </div>
     </div>
