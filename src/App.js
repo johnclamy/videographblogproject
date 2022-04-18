@@ -5,7 +5,7 @@ import LandingPage from './modules/pages/Landing'
 import HomePage from './modules/pages/Home'
 import SignupPage from './modules/pages/Signup'
 import SigninPage from './modules/pages/Signin'
-import AccountPage from './modules/pages/Account'
+import AdminPage from './modules/pages/Admin'
 import AddTodoPage from './modules/pages/AddTodo'
 import EditTodoPage from './modules/pages/EditTodo'
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/signin" element={<SigninPage />} />
-        <Route path="/account" element={<AccountPage />} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="/add-todo" element={<AddTodoPage />} />
         <Route path="/edit-todo" element={<EditTodoPage />} />
       </Routes>
