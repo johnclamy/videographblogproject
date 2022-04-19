@@ -7,7 +7,6 @@ import SignupPage from './modules/pages/Signup'
 import SigninPage from './modules/pages/Signin'
 import AdminPage from './modules/pages/Admin'
 import AddTodoPage from './modules/pages/AddTodo'
-import EditTodoPage from './modules/pages/EditTodo'
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
         <Route path="/signin" element={<SigninPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/add-todo" element={<AddTodoPage />} />
-        <Route path="/edit-todo" element={<EditTodoPage />} />
       </Routes>
     </AuthContextProvider>
   );
