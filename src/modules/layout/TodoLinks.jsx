@@ -13,12 +13,6 @@ const TodoLinks = () => {
       >
         Add Todo
       </a>
-      <a
-        href="/"
-        className="py-4 px-2 text-blue-900 font-semibold hover:text-orange-600 transition duration-300"
-      >
-        Edit Todo
-      </a>
     </div>
   );
 };
