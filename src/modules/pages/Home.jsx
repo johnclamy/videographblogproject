@@ -4,11 +4,10 @@ import { db } from '../services/firebase.config'
 
 const Home = () => {
   const [todos, setTodos] = useState([])
-  const todosColRef = collection(db, 'todos')
 
   useEffect(() => {
     const getTodos = async () => {
-      const todos = await getDocs(todosColRef)
+      const todos = await getDocs(collection(db, 'todos'))
       setTodos(todos.docs.map(doc => (
         { ...doc.data(), id: doc.id }
       )))
