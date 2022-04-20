@@ -1,13 +1,16 @@
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../services/firebase.config'
 
 const AddTodo = () => {
+  const navigate = useNavigate();
   const [task, setTask] = useState('')
 
   const onAddTodo = async () => {
     await addDoc(collection(db, "todos"), { task, isCompleted: false });
     setTask('')
+    navigate('/home')
   }
 
   return (
