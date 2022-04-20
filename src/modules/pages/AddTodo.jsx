@@ -7,6 +7,7 @@ const AddTodo = () => {
 
   const onAddTodo = async () => {
     await addDoc(collection(db, "todos"), { task, isCompleted: false });
+    setTask('')
   }
 
   return (
