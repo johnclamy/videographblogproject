@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore'
 import { db } from '../services/firebase.config'
 
 const Home = () => {
   const [todos, setTodos] = useState([])
   const [inactiveInputField, setInactiveInputField] = useState(true)
+
+  const onDelete = async (todoId) => {
+    await deleteDoc(doc(db, "todos", todoId));
+  };
+
 
   useEffect(() => {
     const getTodos = async () => {
@@ -14,10 +19,8 @@ const Home = () => {
       )))
     }
     getTodos()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [onDelete])
   
-
   return (
     <div className="w-full bg-white rounded-md mt-8 mx-auto shadow-md sm:w-5/6 md:w-4/5 lg:w-3/5">
       <ul className="divide-y-2 divide-gray-400">
@@ -52,7 +55,7 @@ const Home = () => {
                       </svg>
                     )}
                 </button>
-                <button>
+                <button onClick={() => onDelete(todo.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 ml-3"
