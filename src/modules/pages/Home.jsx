@@ -10,6 +10,9 @@ const Home = () => {
     await deleteDoc(doc(db, "todos", todoId));
   };
 
+  const onUpdateTask = async () => { }
+  const onUpdateComplete = async () => {}
+
 
   useEffect(() => {
     const getTodos = async () => {
@@ -20,7 +23,7 @@ const Home = () => {
     }
     getTodos()
   }, [onDelete])
-  
+ 
   return (
     <div className="w-full bg-white rounded-md mt-8 mx-auto shadow-md sm:w-5/6 md:w-4/5 lg:w-3/5">
       <ul className="divide-y-2 divide-gray-400">
@@ -30,30 +33,54 @@ const Home = () => {
               key={todo.id}
               className="flex justify-between p-3 hover:bg-blue-600 hover:text-blue-200"
             >
-              <input className='bg-white pl-2' disabled={inactiveInputField} value={todo.task} />
+              {inactiveInputField ? (
+                todo.isCompleted ? (
+                  <span className="cursor-pointer line-through">
+                    {todo.task}
+                  </span>
+                ) : (
+                  <span className="cursor-pointer font-semibold">{todo.task}</span>
+                )
+              ) : (
+                <input
+                  className="bg-white pl-2"
+                  disabled={inactiveInputField}
+                  value={todo.task}
+                />
+              )}
               <span className="flex justify-end">
                 <button>
-                  {inactiveInputField
-                    ? (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                        />
-                      </svg>)
-                    : (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-                      </svg>
-                    )}
+                  {inactiveInputField ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
+                      />
+                    </svg>
+                  )}
                 </button>
                 <button onClick={() => onDelete(todo.id)}>
                   <svg
