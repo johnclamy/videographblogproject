@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Todo from './components/Todo'
 
 const initTodos = ['walk the dog', 'cook breakfast']
 
@@ -38,9 +39,7 @@ function App() {
         </div>
 
         <ul className='mt-6'>
-          {todos.map((todo) => (
-            <li className='border-2 rounded border-gray-200 p-5 mb-1' key={todo}>{todo}</li>
-          ))}
+          {todos.map((todo) => <Todo todo={todo} />)}
         </ul>
       </div>
     </div>
