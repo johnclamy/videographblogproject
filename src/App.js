@@ -1,17 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { collection, getDocs, addDoc } from 'firebase/firestore'
 import Todo from './components/Todo'
-
-const initTodos = ['walk the dog', 'cook breakfast']
+import db from './firebase.config'
 
 function App() {
-  const [todos, setTodos] = useState(initTodos)
+  const [todos, setTodos] = useState([])
   const [input, setInput] = useState('')
+  const todosCol = collection(db, 'todos')
 
-  const handleAddTodo = e => {
+  const handleAddTodo = async (e) => {
     e.preventDefault()
-    setTodos([...todos, input])
+    await addDoc(todosCol, { todo: input })
     setInput('')
   }
+
+  const handleFetchTodos = async () => {
+    const todos = await getDocs(todosCol)
+    setTodos(todos.docs.map(doc => (
+      { ...doc.data(), id: doc.id }))
+    )
+  }
+
+  useEffect(() => {
+    handleFetchTodos()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [input])
 
   return (
     <div className="sm:container sm:mx-auto">
@@ -19,7 +32,7 @@ function App() {
         <h1 className="my-3 capitalize text-center text-blue-900 text-3xl font-bold">
           my todo list
         </h1>
-        <div class="flex h-32 mt-4 w-full items-center justify-center bg-blue-900">
+        <div className="flex h-32 mt-4 w-full items-center justify-center bg-blue-900">
           <form className="flex rounded bg-white w-[30rem]">
             <input
               value={input}
@@ -28,7 +41,6 @@ function App() {
               placeholder="write a TODO"
             />
             <button
-              type="submit"
               onClick={handleAddTodo}
               disabled={!Boolean(input)}
               className="m-2 rounded px-4 py-2 border-2 bg-white hover:bg-orange-100 border-orange-700 cursor-pointer font-semibold text-orange-700 capitalize"
@@ -39,7 +51,7 @@ function App() {
         </div>
 
         <ul className='mt-6'>
-          {todos.map((todo) => <Todo todo={todo} />)}
+          {todos.map((todo) => <Todo item={todo} />)}
         </ul>
       </div>
     </div>
