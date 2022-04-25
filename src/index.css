@@ -1,3 +1,60 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -150px;
+}
+
+.logo-text {
+  text-align: center;
+  color: white;
+  font-size: large;
+  text-transform: capitalize;
+}
+
+.content {
+  position: relative;
+  height: 65vh;
+  background-color: white;
+  width: 70%;
+  border-radius: 20px;
+  max-width: 450%;
+  max-height: 1200px;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
