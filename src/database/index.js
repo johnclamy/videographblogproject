@@ -3,6 +3,8 @@ import {
   collection,
   getDocs,
   addDoc,
+  doc,
+  deleteDoc
 } from "firebase/firestore";
 import app from '../firebase.config'
 
@@ -25,4 +27,12 @@ const addData = async (data, collectionName) => {
   }
 }
 
-export { addData, fetchData }
+const delData = async (itemId, collectionName) => {
+  try {
+    await deleteDoc(doc(db, collectionName, itemId))
+  } catch (err) {
+    console.error(err.message)
+  }
+}
+
+export { fetchData, addData, delData };
