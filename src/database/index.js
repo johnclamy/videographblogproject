@@ -1,9 +1,14 @@
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+} from "firebase/firestore";
 import app from '../firebase.config'
 
 const db = getFirestore(app);
 
-export const fetchData = async (setData, collectionName) => {
+const fetchData = async (setData, collectionName) => {
   try {
     const data = await getDocs(collection(db, collectionName))
     setData(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
@@ -11,3 +16,13 @@ export const fetchData = async (setData, collectionName) => {
     console.error(err.message)
   }  
 }
+
+const addData = async (data, collectionName) => {
+  try {
+    await addDoc(collection(db, collectionName), data)
+  } catch (err) {
+    console.error(err.message)
+  }
+}
+
+export { addData, fetchData }
