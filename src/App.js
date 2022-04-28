@@ -1,4 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap'
+import ShortsCard from './components/ShortsCard'
 import './App.css'
 
 const App = () => {
@@ -14,7 +15,9 @@ const App = () => {
             <img src="/logo192.png" width="48" alt="app logo" />
             <h1 className=" mt-1 text-capitalize h3">shorts</h1>
           </header>
-          <article>videos go here...</article>
+          <article>
+            <ShortsCard />
+          </article>
         </Col>
       </Row>
     </Container>
