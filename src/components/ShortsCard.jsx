@@ -1,18 +1,32 @@
-import { Button, Card } from "react-bootstrap";
+import { useRef, useState } from 'react'
+import ShortsCardHeader from './ShortsCardHeader'
 
 const ShortsCard = () => {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const youTubeRef = useRef(null)
+
+  const handleClick = () => {
+    if (isPlaying) {
+      youTubeRef.current.pause()
+      setIsPlaying(false)
+    } else {
+      youTubeRef.current.play()
+      setIsPlaying(true)
+    }
+  }
+
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="/logo192.png" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <div className="w-100 mb-2">
+      <ShortsCardHeader />
+      <video
+        src="https://res.cloudinary.com/dxkxvfo2o/video/upload/v1608169738/video1_cvrjfm.mp4"
+        className="w-100 border border-dark rounded-3"
+        alt="Short Video App"
+        loop
+        ref={youTubeRef}
+        onClick={handleClick}
+      />
+    </div>
   );
 };
 
