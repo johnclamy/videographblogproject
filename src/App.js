@@ -17,6 +17,7 @@ const App = () => {
           </header>
           <article>
             <ShortsCard />
+            <ShortsCard />
           </article>
         </Col>
       </Row>
@@ -24,4 +25,4 @@ const App = () => {
   );
 }
 
-export default App 
+export default App
