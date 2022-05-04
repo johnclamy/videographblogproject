@@ -1,16 +1,22 @@
 import { Container, Row, Col } from 'react-bootstrap'
+import { Routes, Route } from 'react-router-dom'
+import NavigationBar from './components/layout/NavigationBar'
+import SigninPage from './components/pages/Signin'
+import SignupPage from './components/pages/Signup'
+import HomePage from './components/pages/Home'
 import './App.css'
 
 const App = () => {
   return (
-    <Container className="h-100">
-      <Row className="h-100 wrapper">
-        <Col
-          className="h-100 mb-4 d-sm-flex flex-column justify-content-start align-items-center"
-          md={{ span: 8, offset: 2 }}
-          lg={{ span: 6, offset: 3 }}
-        >
-          todos app test ...
+    <Container fluid>
+      <Row>
+        <Col md={{ span: 10, offset: 1 }} lg={{ span: 6, offset: 3 }}>
+          <NavigationBar />
+          <Routes>
+            <Route path='/' element={<SigninPage />} />
+            <Route path='/signup' element={<SignupPage />} />
+            <Route path='/home' element={<HomePage />} />
+          </Routes>
         </Col>
       </Row>
     </Container>
