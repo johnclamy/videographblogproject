@@ -16,7 +16,7 @@ import app from '../config'
 const UserContext = createContext()
 const auth = getAuth(app)
 
-export const AuthContextProvider = ({ children }) => {
+const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({})
 
   const createUser = (email, password) => {
@@ -43,17 +43,21 @@ export const AuthContextProvider = ({ children }) => {
   }, [])
 
   return (
-    <UserContext.Provider value={{
-      createUser,
-      user,
-      logout,
-      signin
-    }}>
+    <UserContext.Provider
+      value={{
+        user,
+        createUser,
+        logout,
+        signin,
+      }}
+    >
       {children}
     </UserContext.Provider>
-  )
+  );
 }
 
 export const UserAuth = () => {
   return useContext(UserContext)
 }
+
+export default AuthContextProvider; 
