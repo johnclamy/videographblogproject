@@ -6,9 +6,14 @@ const AuthButton = () => {
   const navigate = useNavigate();
   const { user, logout } = UserAuth();
 
+  const handleSignOutClick = () => {
+    logout()
+    navigate('/')
+  }
+
   if (user) {
     return (
-      <Button className="text-capitalize" variant="link" onClick={() => logout()}>
+      <Button className="text-capitalize" variant="link" onClick={handleSignOutClick}>
         sign out
       </Button>
     );
