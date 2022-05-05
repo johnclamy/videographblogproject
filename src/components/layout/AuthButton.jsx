@@ -6,8 +6,8 @@ const AuthButton = () => {
   const navigate = useNavigate();
   const { user, logout } = UserAuth();
 
-  const handleSignOutClick = () => {
-    logout()
+  const handleSignOutClick = async () => {
+    await logout()
     navigate('/')
   }
 
