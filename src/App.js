@@ -3,8 +3,6 @@ import AuthContextProvider from './firebase/auth'
 import NavigationBar from './components/layout/NavigationBar'
 import AppRoutes from './components/routes'
 
-import './App.css'
-
 const App = () => {
   return (
     <Container fluid>
