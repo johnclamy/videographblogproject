@@ -1,9 +1,13 @@
+import Toolbar from '../layout/Toolbar'
+
 const Home = () => {
   return (
-    <section>
-      Home page ...
-    </section>
-  )
+    <>
+      <main>
+        <Toolbar />
+      </main>
+    </>
+  );
 }
 
 export default Home
