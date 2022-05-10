@@ -1,12 +1,14 @@
+import AddButton from '../layout/AddButton'
 import Toolbar from '../layout/Toolbar'
 
 const Home = () => {
   return (
-    <>
-      <main>
+    <main>
+      <header className="mt-4 mb-2">
+        <AddButton />
         <Toolbar />
-      </main>
-    </>
+      </header>
+    </main>
   );
 }
 
