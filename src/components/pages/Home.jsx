@@ -1,9 +1,14 @@
-import { Row, Col } from 'react-bootstrap'
-import AddButton from '../layout/AddButton'
-import Toolbar from '../layout/Toolbar'
-import AppTable from '../layout/AppTable'
+import { useReducer } from "react";
+import { Row, Col } from "react-bootstrap";
+import AddButton from "../layout/AddButton";
+import Toolbar from "../layout/Toolbar";
+import AppTable from "../layout/AppTable";
+import reducer from '../app/reducer'
+import initState from '../app/initialTodos';
 
 const Home = () => {
+  const [state, dispatch] = useReducer(reducer, initState)
+
   return (
     <main>
       <header className="mt-2 mb-4">
@@ -15,10 +20,10 @@ const Home = () => {
         <Toolbar />
       </header>
       <article>
-        <AppTable />
+        <AppTable todos={state} />
       </article>
     </main>
   );
-}
+};
 
-export default Home
+export default Home;
