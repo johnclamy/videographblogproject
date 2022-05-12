@@ -1,6 +1,6 @@
 import Alert from 'react-bootstrap/Alert'
 
-export const errorAlert = (error) => {
+const errorAlert = (error) => {
   if (error) {
     return (
       <Alert className="text-center" variant="danger">
@@ -11,3 +11,5 @@ export const errorAlert = (error) => {
 
   return null
 }
+
+export { errorAlert }
