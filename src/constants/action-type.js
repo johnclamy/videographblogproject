@@ -1,5 +1,9 @@
 const actionType = {
-  SORT_TABLE: 'SORT_TABLE',
+  ADD: 'ADD',
+  EDIT: 'EDIT',
+  COMPLETE: 'COMPLETE',
+  DELETE: 'DELETE',
+  SORT: 'SORT',
 }
 
 export default actionType
