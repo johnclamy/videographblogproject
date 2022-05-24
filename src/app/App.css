@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&family=Overlock+SC&display=swap");
+
+:root {
+  /* Colour variables */
+  --app-black: #2b2d42;
+  --app-grey: #8d99ae;
+  --app-light: #edf2f4;
+  --app-white: ivory;
+  --app-red: #ef233c;
+  --app-crimson: #d90429;
+
+  /* Backgrounds */
+  --primary-bg: var(--app-white);
+  --secondary-bg: var(--app-light);
+  --third-bg: var(--app-grey);
+  --inverse-bg: var(--app-black);
+
+  /* Text */
+  --primary-txt: var(--app-black);
+  --light-txt: var(--app-grey);
+  --loud-txt: var(--app-crimson);
+  --link-txt: var(--app-grey);
+  --heading-txt: var(--app-red);
+  --subheading-txt: var(--app-grey);
+
+  /* Borders */
+  --border-clr: var(--app-light);
+  --border-sz: 1px;
+  --border-typ: solid;
+  --border-fcs: var(--app-grey);
+
+  /* Typography */
+  --primary-font: "Nunito", Arial, Helvetica, sans-serif;
+  --heading-font: "Overlock SC", cursive;
+  --base-font-sz: 14px;
+  --font-sz: 1em;
+  --base-line-height: 1.5;
+
+  /* Layout */
+  --margin: 1em;
+  --padding: 1em;
+}
+
+body {
+  font-family: var(--primary-font);
+}
+
+.logo {
+  font-family: var(--heading-font);
+}
