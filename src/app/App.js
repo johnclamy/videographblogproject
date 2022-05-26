@@ -1,20 +1,22 @@
+import { BrowserRouter } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap'
-import Navbar from '../components/Navbar'
-import './App.css'
+import Navbar from "../components/Navbar";
+import AppRoutes from "../routes";
+import "./App.css";
 
-const App = () => {
+const App = ({ children }) => {
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
       <Container>
         <Row>
-          <Col md={{ span: 10, offset: 1 }} lg={{ span: 6, offset: 3 }}>
-            content goes here...
+          <Col>
+            <AppRoutes>{children}</AppRoutes>
           </Col>
         </Row>
       </Container>
-    </>
+    </BrowserRouter>
   );
-}
+};
 
-export default App
+export default App;
