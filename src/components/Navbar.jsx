@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Logo from './Logo'
-import Menu from './Menu'
+import MenuButton from './MenuButton'
 import NavLinks from './NavLinks'
 import NavButtons from './NavButtons'
+import Slider from './Slider'
 
 const Navbar = () => {
   const [showSlider, setShowSlider] = useState(false)
@@ -12,12 +13,13 @@ const Navbar = () => {
     <Container>
       <Row>
         <Col>
-          <nav className={showSlider ? 'navbar slider' : 'navbar'}>
+          <nav className="navbar">
             <Logo />
             <NavLinks />
             <NavButtons />
-            <Menu />
+            <MenuButton onMenuClick={() => setShowSlider(!showSlider)} />
           </nav>
+          {showSlider && <Slider />}
         </Col>
       </Row>
     </Container>
