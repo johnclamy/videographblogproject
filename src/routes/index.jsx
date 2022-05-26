@@ -6,12 +6,14 @@ import SignUpPage from '../pages/Signup'
 import SignInPage from '../pages/Signin'
 
 const AppRoutes = () => {
-  <Routes>
-    <Route path={ROUTES.HOME} element={<HomePage />} />
-    <Route path={ROUTES.ROOMS} element={<RoomsPage />} />
-    <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
-    <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
-  </Routes>;
+  return (
+    <Routes>
+      <Route path={ROUTES.HOME} element={<HomePage />} />
+      <Route path={ROUTES.ROOMS} element={<RoomsPage />} />
+      <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
+      <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
+    </Routes>
+  )
 }
 
 export default AppRoutes
