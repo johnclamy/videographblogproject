@@ -103,7 +103,8 @@ a:active {
   background-color: white;
 }
 
-.nav-links a {
+.nav-links a,
+.slider-links a {
   text-decoration: none;
   border-bottom: none;
   color: var(--primary-txt);
@@ -122,7 +123,6 @@ a:active {
   display: none;
   height: 32px;
   width: 32px;
-  cursor: pointer;
 }
 
 .desktop-nav-link-view {
@@ -133,6 +133,12 @@ a:active {
 
 .slider {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 2;
+  background-color: var(--secondary-bg);
+  padding: calc(var(--padding) * 1.5);
+  padding-bottom: calc(var(--padding) * 6);
 }
 
 /* media queries */
