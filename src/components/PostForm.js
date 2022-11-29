@@ -13,10 +13,6 @@ const PostForm = () => {
       </header>
       <Form className="mb-4">
         <Form.Group className="mb-3">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="name@example.com" />
-        </Form.Group>
-        <Form.Group className="mb-3">
           <Form.Label>Post title</Form.Label>
           <Form.Control type="text" />
         </Form.Group>
