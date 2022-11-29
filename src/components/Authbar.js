@@ -4,7 +4,7 @@ function Authbar() {
   const email = "john.doe@abcd-inc.com";
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className='mb-3' bg="light" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">Blogster</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
