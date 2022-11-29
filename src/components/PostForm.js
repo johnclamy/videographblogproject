@@ -21,7 +21,7 @@ const PostForm = () => {
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
         <Button variant="info" type="submit">
-          Submit
+          ADD
         </Button>
       </Form>
     </Container>
