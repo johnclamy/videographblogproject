@@ -9,6 +9,10 @@ const Login = () => {
           <Form.Control type="email" placeholder="name@example.com" />
         </Form.Group>
         <Form.Group className="mb-3">
+          <Form.Label>Confirm email address</Form.Label>
+          <Form.Control type="email" />
+        </Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" />
         </Form.Group>
@@ -17,7 +21,7 @@ const Login = () => {
         </Button>
       </Form>
     </Container>
-  )
+  );
 }
 
 export default Login
