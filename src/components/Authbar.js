@@ -1,8 +1,9 @@
-import { Button, Container, Nav, Navbar }  from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import LogOut from "../auth/LogOut";
+import Login from "../auth/Login";
+import SignUp from '../auth/SignUp';
 
-function Authbar() {
-  const email = "john.doe@abcd-inc.com";
-
+function Authbar({ email }) {
   return (
     <Navbar className='mb-3' bg="light" expand="lg">
       <Container fluid>
@@ -13,10 +14,7 @@ function Authbar() {
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
           ></Nav>
-          <Navbar.Text style={{marginRight: '1rem'}}>{email}</Navbar.Text>
-          <Button size="sm" variant="outline-info">
-            Logout
-          </Button>
+          {email ? <LogOut email={email} /> : <><Login /> <SignUp /></> }
         </Navbar.Collapse>
       </Container>
     </Navbar>

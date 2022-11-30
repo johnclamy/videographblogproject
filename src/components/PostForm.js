@@ -1,6 +1,6 @@
 import { Button, Container, Form } from 'react-bootstrap'
 
-const PostForm = () => {
+const PostForm = ({ author }) => {
   return (
     <Container className="border border-info rounded m-1">
       <header className="mt-3">
@@ -8,7 +8,7 @@ const PostForm = () => {
           add post
         </h1>
         <p>
-          author: <b>John Doe</b>
+          author: <b>{author}</b>
         </p>
       </header>
       <Form className="mb-4">
