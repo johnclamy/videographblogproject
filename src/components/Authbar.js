@@ -1,7 +1,7 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import LogOut from "../auth/LogOut";
-import Login from "../auth/Login";
-import SignUp from '../auth/SignUp';
+import LoginLink from "../auth/LoginLink";
+import SignUpLink from '../auth/SignUpLink';
 
 function Authbar({ email }) {
   return (
@@ -14,7 +14,7 @@ function Authbar({ email }) {
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
           ></Nav>
-          {email ? <LogOut email={email} /> : <><Login /> <SignUp /></> }
+          {email ? <LogOut email={email} /> : <><LoginLink />{' '}<SignUpLink /></>}
         </Navbar.Collapse>
       </Container>
     </Navbar>
