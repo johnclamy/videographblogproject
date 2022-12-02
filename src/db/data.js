@@ -1,10 +1,11 @@
 const data = {
   user: {
-    name: "John Doe",
-    email: "john.doe@abcd-inc.com",
-    password: "swordfish",
-  },
+    username: "John Doe",
+    email: "john.doe@abcv-inc.com",
+    password: "bluebird",
 
+    
+  },
   posts: [
     {
       title: "React Hooks",
