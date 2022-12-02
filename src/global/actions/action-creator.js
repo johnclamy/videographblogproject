@@ -27,4 +27,15 @@ const logout = () => {
   }
 }
 
-export { login, signUp, logout }
+const createPost = (title, content, author) => {
+  return {
+    type: actionType.CREATE_POST,
+    payload: {
+      title,
+      content,
+      author
+    }
+  }
+}
+
+export { login, signUp, logout, createPost }
