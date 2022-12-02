@@ -3,9 +3,10 @@ import LogOut from "../auth/LogOut";
 import LoginLink from "../auth/LoginLink";
 import SignUpLink from '../auth/SignUpLink';
 
-function Authbar({ email }) {
+function Authbar({ user, dispatch }) {
+  console.log('authbar', user, dispatch)
   return (
-    <Navbar className='mb-3' bg="light" expand="lg">
+    <Navbar className="mb-3" bg="light" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">Blogster</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -14,7 +15,14 @@ function Authbar({ email }) {
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
           ></Nav>
-          {email ? <LogOut email={email} /> : <><LoginLink />{' '}<SignUpLink /></>}
+          {user.email ? (
+            <LogOut email={user.email} dispatch={dispatch} />
+          ) : (
+            <>
+              <LoginLink dispatch={dispatch} />{" "}
+              <SignUpLink dispatch={dispatch} />
+            </>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
