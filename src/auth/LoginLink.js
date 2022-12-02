@@ -1,13 +1,22 @@
+import { login } from '../global/actions/action-creator'
+
 import { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap'
 
-const LoginLink = () => {
+const LoginLink = ({ dispatch }) => {
+  console.log(dispatch)
   const [show, setShow] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const handleClick = () => {
+    dispatch(login(email, password))
+    setEmail('')
+    setPassword('')
+    handleClose()
   }
 
   return (
@@ -21,18 +30,24 @@ const LoginLink = () => {
           <Modal.Title className="text-info text-uppercase">login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit} className="mb-4">
+          <Form className="mb-4">
             <Form.Group className="mb-3">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
+                value={email}
                 placeholder="name@example.com"
+                onChange={(e) => setEmail(e.target.value)}
                 autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" />
+              <Form.Control
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -40,7 +55,7 @@ const LoginLink = () => {
           <Button variant="outline-info" type="button" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="info" type="submit">
+          <Button variant="info" type="button" onClick={handleClick}>
             Login
           </Button>
         </Modal.Footer>
