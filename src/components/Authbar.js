@@ -4,7 +4,6 @@ import LoginLink from "../auth/LoginLink";
 import SignUpLink from '../auth/SignUpLink';
 
 function Authbar({ user, dispatch }) {
-  console.log('authbar', user, dispatch)
   return (
     <Navbar className="mb-3" bg="light" expand="lg">
       <Container fluid>

@@ -12,12 +12,12 @@ const defaultPosts = data.posts
 const App = () => {
   const [user, dispatchUser] = useReducer(userReducer, {})
   const [posts, dispatchPosts] = useReducer(postsReducer, defaultPosts)
-  console.log('App', posts);
+
   return (
     <Wrapper>
       <Authbar user={user} dispatch={dispatchUser} />
-      <PostFormAccordion user={user} />
-      <PostList posts={posts} dispatch={dispatchPosts} />
+      <PostFormAccordion user={user} dispatch={dispatchPosts} />
+      <PostList posts={posts} />
     </Wrapper>
   );
 }
