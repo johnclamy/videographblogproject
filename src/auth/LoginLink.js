@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Button, Form, Modal } from 'react-bootstrap'
 
 const LoginLink = ({ dispatch }) => {
-  console.log(dispatch)
   const [show, setShow] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -21,7 +20,12 @@ const LoginLink = ({ dispatch }) => {
 
   return (
     <>
-      <Button variant="link" type="button" onClick={handleShow}>
+      <Button
+        className="font-weight-bold text-info text-decoration-none"
+        variant="link"
+        type="button"
+        onClick={handleShow}
+      >
         Login
       </Button>
 

@@ -29,7 +29,7 @@ const SignUpLink = ({ dispatch }) => {
 
   return (
     <>
-      <Button variant="link" type="button" onClick={handleShow}>
+      <Button className="font-weight-bold text-info text-decoration-none" variant="link" type="button" onClick={handleShow}>
         Sign Up
       </Button>
 
