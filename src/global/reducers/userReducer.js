@@ -4,8 +4,10 @@ export default function useReducer(state, { type, payload }) {
   switch (type) {
     case actionType.LOGIN:
       return {
-        ...state, email: payload.email, password: payload.password
-      }
+        ...state,
+        email: payload.email,
+        password: payload.password,
+      };
 
     case actionType.SIGNUP:
       return {
