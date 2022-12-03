@@ -1,22 +1,21 @@
 import { useReducer } from "react";
+import reducer from "../global/reducers/reducer";
 import Wrapper from "../components/Wrapper";
 import Authbar from "../components/Authbar";
 import PostList from "../post/PostList";
-import data from "../db/data";
 import PostFormAccordion from "../components/PostFormAccordion";
-import userReducer from "../global/reducers/userReducer";
-import postsReducer from "../global/reducers/postsReducer";
+import data from "../db/data";
 
-const defaultPosts = data.posts
+const defaultData = { user: {}, posts: data.posts }
 
 const App = () => {
-  const [user, dispatchUser] = useReducer(userReducer, {})
-  const [posts, dispatchPosts] = useReducer(postsReducer, defaultPosts)
+  const [state, dispatch] = useReducer(reducer, defaultData)
+  const { user, posts } = state
 
   return (
     <Wrapper>
-      <Authbar user={user} dispatch={dispatchUser} />
-      <PostFormAccordion user={user} dispatch={dispatchPosts} />
+      <Authbar user={user} dispatch={dispatch} />
+      <PostFormAccordion user={user} dispatch={dispatch} />
       <PostList posts={posts} />
     </Wrapper>
   );
