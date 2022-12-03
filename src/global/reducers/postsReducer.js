@@ -10,6 +10,6 @@ export default function postsReducer(state, { type, payload }) {
       };
       return [post, ...state];
     default:
-      throw new Error();
+      return state
   }
 }
