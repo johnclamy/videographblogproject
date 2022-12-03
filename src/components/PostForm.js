@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap'
+import { createPost } from '../global/actions/action-creator'
 
-const PostForm = ({ user }) => {
-  const currentUser = user.username ? user.username : "unknown";
+const PostForm = ({ user, dispatch }) => {
+  const author = user.username ? user.username : "unknown";
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const handleClick = () => {
+    dispatch(createPost(title, content, author))
+    setTitle('')
+    setContent('')
+  }
 
   return (
     <Container className="border border-info rounded m-1">
@@ -13,7 +20,7 @@ const PostForm = ({ user }) => {
           add post
         </h1>
         <p>
-          author: <b>{currentUser}</b>
+          author: <b>{author}</b>
         </p>
       </header>
       <Form className="mb-4">
@@ -34,7 +41,7 @@ const PostForm = ({ user }) => {
             onChange={(e) => setContent(e.target.value)}
           />
         </Form.Group>
-        <Button variant="info" type="submit">
+        <Button variant="info" type="button" onClick={handleClick}>
           ADD
         </Button>
       </Form>
