@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import reducer from "../global/reducers/reducer";
 import Wrapper from "../components/Wrapper";
 import Authbar from "../components/Authbar";
@@ -9,8 +9,16 @@ import data from "../db/data";
 const defaultData = { user: {}, posts: data.posts }
 
 const App = () => {
+
   const [state, dispatch] = useReducer(reducer, defaultData)
   const { user, posts } = state
+
+  useEffect(() => {
+    if (user.username) {
+      document.title = `Blogster with ${user.username} currently signed in`
+    }
+    return () => document.title = 'Blogster blogging app'
+  }, [user.username])
 
   return (
     <Wrapper>
