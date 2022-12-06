@@ -7,7 +7,13 @@ const ToggleThemeButton = () => {
   const label = isLightTheme ? 'Set Dark Theme' : 'Set Light Theme'
 
   return (
-    <Button type='button' variant="success" size='sm' onClick={() => toggleTheme()}>
+    <Button
+      type='button'
+      variant="light"
+      size='sm'
+      onClick={() => toggleTheme()}
+      style={{marginRight: '1rem'}}
+    >
       {label}
     </Button>
   )
