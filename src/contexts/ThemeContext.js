@@ -1,21 +1,17 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
+import theme from '../theme';
 
-const ThemeContext = createContext({
-  isLightTheme: true,
-  light: {
-    bg: "light",
-    variant: "info",
-    textHeading: "text-info",
-    textContent: "text-dark",
-    border: "border border-info",
-  },
-  dark: {
-    bg: "dark",
-    variant: "warning",
-    textHeading: "text-warning",
-    textContent: "text-white",
-    border: "border border-warning",
-  },
-});
+export const ThemeContext = createContext();
 
-export default ThemeContext
+const ThemeContextProvider = ({ children }) => {
+  const [currentTheme, setCurrentTheme] = useState(theme);
+
+  return (
+    <ThemeContext.Provider value={currentTheme}>
+      {children}
+    </ThemeContext.Provider>
+  )
+
+}
+
+export default ThemeContextProvider
