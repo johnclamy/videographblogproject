@@ -1,22 +1,30 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap'
+import ThemeContext from "../contexts/ThemeContext";
 import { createPost } from '../global/actions/action-creator'
 
 const PostForm = ({ user, dispatch }) => {
   const author = user.username ? user.username : "unknown";
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const theme = isLightTheme ? light : dark;
 
-  const handleClick = () => {
-    dispatch(createPost(title, content, author))
-    setTitle('')
-    setContent('')
+  const styles = {
+    container: `${theme.border} rounded m-1`,
+    textHeading: `font-weight-bold ${theme.textHeading} text-uppercase mb-0 h4`,
   }
 
+  const handleClick = () => {
+    dispatch(createPost(title, content, author));
+    setTitle("");
+    setContent("");
+  };
+
   return (
-    <Container className="border border-info rounded m-1">
+    <Container className={styles.container}>
       <header className="mt-3">
-        <h1 className="font-weight-bold text-info text-uppercase mb-0 h4">
+        <h1 className={styles.textHeading}>
           add post
         </h1>
         <p>
