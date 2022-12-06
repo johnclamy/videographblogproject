@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import LogOut from "../auth/LogOut";
 import LoginLink from "../auth/LoginLink";
 import SignUpLink from '../auth/SignUpLink';
+import ToggleThemeButton from './ToggleThemeButton'
 
 function Authbar({ user, dispatch }) {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
@@ -23,6 +24,7 @@ function Authbar({ user, dispatch }) {
             <LogOut email={user.email} dispatch={dispatch} />
           ) : (
             <>
+              <ToggleThemeButton />{" "}
               <LoginLink dispatch={dispatch} />{" "}
               <SignUpLink dispatch={dispatch} />
             </>
