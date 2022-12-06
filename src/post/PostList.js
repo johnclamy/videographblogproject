@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ThemeContext from "../contexts/ThemeContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 import { Alert, ListGroup } from "react-bootstrap";
 import uuid from '../helper/uuid';
 import Post from "./Post";

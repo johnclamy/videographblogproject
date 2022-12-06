@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap'
-import ThemeContext from "../contexts/ThemeContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 import { createPost } from '../global/actions/action-creator'
 
 const PostForm = ({ user, dispatch }) => {

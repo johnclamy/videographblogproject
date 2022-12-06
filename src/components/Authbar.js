@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import ThemeContext from '../contexts/ThemeContext';
+import { ThemeContext } from '../contexts/ThemeContext';
 import { Container, Nav, Navbar } from "react-bootstrap";
 import LogOut from "../auth/LogOut";
 import LoginLink from "../auth/LoginLink";
