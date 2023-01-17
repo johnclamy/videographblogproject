@@ -1,5 +1,11 @@
-const App = () => {
-  return <p>testing the app...</p>
-}
+import React from 'react'
+import Layout from '../layout/Layout';
+import NavBar from '../layout/NavBar';
 
-export default App;
+const App = () => (
+  <Layout>
+    <NavBar />
+  </Layout>
+)
+
+export default App
