@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-const SignUp = () => {
+const SignUp = ({ onClose, onSetUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
+    onSetUser(username);
     setUsername("");
     setPassword("");
-    // onClose();
+    onClose();
   };
 
   return (
