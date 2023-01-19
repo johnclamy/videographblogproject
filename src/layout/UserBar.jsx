@@ -4,10 +4,9 @@ import SignUp from '../auth/SignUp'
 import Login from '../auth/Login'
 import Logout from '../auth/Logout'
 
-const UserBar = () => {
+const UserBar = ({ user, onSetUser }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  const [user, setUser] = useState('')
 
   const handleCloseLogin = () => setShowLogin(false);
   const handleShowLogin = () => setShowLogin(true);
@@ -15,7 +14,7 @@ const UserBar = () => {
   const handleShowSignUp = () => setShowSignUp(true);
 
   const renderUser = user ? (
-    <Logout user={user} />
+    <Logout user={user} onSetUser={onSetUser} />
   ) : (
     <>
       <Button
@@ -35,8 +34,8 @@ const UserBar = () => {
         LOGIN
       </Button>
     </>
-  ); 
- 
+  );
+
   return (
     <>
       <section className="d-flex">{renderUser}</section>
@@ -45,7 +44,7 @@ const UserBar = () => {
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Login onClose={handleCloseLogin} />
+          <Login onClose={handleCloseLogin} onSetUser={onSetUser} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseLogin}>
@@ -58,7 +57,7 @@ const UserBar = () => {
           <Modal.Title>Sign Up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <SignUp onClose={handleCloseSignUp} />
+          <SignUp onClose={handleCloseSignUp} onSetUser={onSetUser} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseSignUp}>

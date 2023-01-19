@@ -1,7 +1,7 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import UserBar from "./UserBar";
 
-function NavBar() {
+function NavBar({ user, onSetUser }) {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -18,7 +18,7 @@ function NavBar() {
             <Nav.Link href="#action1">Home</Nav.Link>
             <Nav.Link href="#action2">Link</Nav.Link>
           </Nav>
-          <UserBar />
+          <UserBar user={user} onSetUser={onSetUser} />
         </Navbar.Collapse>
       </Container>
     </Navbar>
