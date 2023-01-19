@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { Button, Form } from "react-bootstrap";
 
-const Login = ({ onClose }) => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+const Login = ({ onClose, onSetUser }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(username, password);
-    setUsername('')
-    setPassword('')
-    onClose()
-  }
-  
+    e.preventDefault();
+    onSetUser(username)
+    setUsername("");
+    setPassword("");
+    onClose();
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
@@ -31,7 +31,7 @@ const Login = ({ onClose }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" disabled={username.length === 0}>
         Login
       </Button>
     </Form>
