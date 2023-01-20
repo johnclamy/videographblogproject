@@ -17,7 +17,7 @@ const App = () => {
     if (user) {
       document.title = `Blogster user ${user} currently logged in`
     } else {
-      document.title = "Blogster blogging app";
+      document.title = "Welcome to Blogster blogging app - Login to add posts";
     }
   }, [user])
 
