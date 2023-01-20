@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Button, Form } from "react-bootstrap";
+import { login } from '../redux/action';
 
-const Login = ({ onClose, onSetUser }) => {
+const Login = ({ onClose, dispatch }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSetUser(username)
+    dispatch(login());
     setUsername("");
     setPassword("");
     onClose();

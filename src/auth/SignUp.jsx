@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { signUp } from "../redux/action";
 
-const SignUp = ({ onClose, onSetUser }) => {
+const SignUp = ({ onClose, dispatch }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSetUser(username);
+    dispatch(signUp());
     setUsername("");
     setPassword("");
     onClose();
