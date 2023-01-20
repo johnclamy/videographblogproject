@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Button, InputGroup, Form } from 'react-bootstrap'
+import { createPost } from "../redux/action";
 
-const CreatePost = ({ user, posts, onSetPosts }) => {
+const CreatePost = ({ user, dispatch }) => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
   const handleSubmit = e => {
     e.preventDefault()
-    onSetPosts([{ title, content, author: user }, ...posts]);
+    dispatch(createPost(title, content, user));
     setTitle('')
     setContent('')
   }
