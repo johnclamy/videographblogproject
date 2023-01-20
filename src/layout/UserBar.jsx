@@ -4,7 +4,7 @@ import SignUp from '../auth/SignUp'
 import Login from '../auth/Login'
 import Logout from '../auth/Logout'
 
-const UserBar = ({ user, onSetUser }) => {
+const UserBar = ({ user, dispatch }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
 
@@ -14,7 +14,7 @@ const UserBar = ({ user, onSetUser }) => {
   const handleShowSignUp = () => setShowSignUp(true);
 
   const renderUser = user ? (
-    <Logout user={user} onSetUser={onSetUser} />
+    <Logout user={user} dispatch={dispatch} />
   ) : (
     <>
       <Button
@@ -44,7 +44,7 @@ const UserBar = ({ user, onSetUser }) => {
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Login onClose={handleCloseLogin} onSetUser={onSetUser} />
+          <Login onClose={handleCloseLogin} dispatch={dispatch} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseLogin}>
@@ -57,7 +57,7 @@ const UserBar = ({ user, onSetUser }) => {
           <Modal.Title>Sign Up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <SignUp onClose={handleCloseSignUp} onSetUser={onSetUser} />
+          <SignUp onClose={handleCloseSignUp} dispatch={dispatch} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseSignUp}>
