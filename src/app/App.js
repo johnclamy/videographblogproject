@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import Alert from "react-bootstrap/Alert";
 import Layout from '../layout/Layout';
 import NavBar from '../layout/NavBar';
@@ -12,6 +12,14 @@ const initialState = { user: "", posts: defaultPosts };
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const { user, posts } = state
+
+  useEffect(() => {
+    if (user) {
+      document.title = `Blogster user ${user} currently logged in`
+    } else {
+      document.title = "Blogster blogging app";
+    }
+  }, [user])
 
   return (
     <Layout>
