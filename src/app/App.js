@@ -5,9 +5,9 @@ import NavBar from '../layout/NavBar';
 import CreatePost from '../post/CreatePost';
 import PostList from '../post/PostList';
 import reducer from '../redux/reducer';
-import defaultPosts from '../data/default-posts';
+import defaultData from '../server/db.json';
 
-const initialState = { user: "", posts: defaultPosts };
+const initialState = { user: "", posts: defaultData.posts };
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
