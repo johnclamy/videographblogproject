@@ -11,6 +11,9 @@ export default function postsReducer(state, action) {
       };
       return [newPost, ...state]
     
+    case actionType.FETCH_POSTS:
+      return action.posts
+    
     default:
       return state
   }
