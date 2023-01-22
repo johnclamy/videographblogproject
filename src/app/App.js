@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react'
+import { useEffect, useReducer } from 'react';
 import Alert from "react-bootstrap/Alert";
 import Layout from '../layout/Layout';
 import NavBar from '../layout/NavBar';
@@ -6,6 +6,7 @@ import CreatePost from '../post/CreatePost';
 import PostList from '../post/PostList';
 import reducer from '../redux/reducer';
 import defaultData from '../server/db.json';
+import { fetchPosts } from '../redux/action';
 
 const initialState = { user: "", posts: defaultData.posts };
 
@@ -20,6 +21,12 @@ const App = () => {
       document.title = "Welcome to Blogster blogging app - Login to add posts";
     }
   }, [user])
+
+  useEffect(() => {
+    fetch('api/posts')
+      .then(rslt => rslt.json())
+      .then(posts => dispatch(fetchPosts(posts)))
+  }, [])
 
   return (
     <Layout>
