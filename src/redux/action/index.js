@@ -29,8 +29,16 @@ const createPost = (title, content, user) => {
   }
 };
 
+const fetchPosts = (posts) => {
+  return {
+    type: actionType.FETCH_POSTS,
+    posts
+  }
+}
+
 export {
   createPost,
+  fetchPosts,
   login,
   logout,
   signUp
