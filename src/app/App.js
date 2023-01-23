@@ -5,13 +5,15 @@ import NavBar from '../layout/NavBar';
 import CreatePost from '../post/CreatePost';
 import PostList from '../post/PostList';
 import reducer from '../redux/reducer';
-import defaultData from '../server/db.json';
 import { fetchPosts } from '../redux/action';
 
-const initialState = { user: "", posts: defaultData.posts };
-
+const URL = "http://localhost:4000/posts";
+;
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, {
+    user: "",
+    posts: [],
+  });
   const { user, posts } = state
 
   useEffect(() => {
@@ -23,9 +25,17 @@ const App = () => {
   }, [user])
 
   useEffect(() => {
-    fetch('api/posts')
-      .then(rslt => rslt.json())
-      .then(posts => dispatch(fetchPosts(posts)))
+    fetch(URL, { mathod: "GET", headers: { "Content-Type": "application/json" }})
+      .then(async rslt => {
+        try {
+          const posts = await rslt.json()
+          // console.log('result posts?', posts)
+          dispatch(fetchPosts(posts))
+        } catch (err) {
+          console.log('Error fetching data!')
+          console.error(err.message)
+        }
+      })
   }, [])
 
   return (
