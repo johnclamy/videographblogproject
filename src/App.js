@@ -1,10 +1,9 @@
+import Layout from './components/layout/Layout';
 import './App.css';
 
 function App() {
   return (
-    <div>
-      testing the app...
-    </div>
+    <Layout>Testing the App component...</Layout>
   );
 }
 
