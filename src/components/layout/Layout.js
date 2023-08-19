@@ -1,11 +1,11 @@
 import Navbar from "./Navbar"
-import Header from "./Header"
+import Auth from "../widgets/Auth"
 
 export default function Layout({ children }) {
   return (
     <div className="bg-white">
       <Navbar />
-      <Header />
+      <Auth />
       {children}
     </div>
   )
