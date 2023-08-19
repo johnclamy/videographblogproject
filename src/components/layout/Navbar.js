@@ -12,7 +12,7 @@ export default function Navbar() {
             about
           </a>
         </section>
-        <section className="flex items-center text-lg no-underline text-white pr-6">
+        <section className="flex items-center text-lg no-underline text-white pr-4">
           <a href="/">
             <BsFacebook />
           </a>
