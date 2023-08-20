@@ -1,11 +1,11 @@
 import Navbar from "./Navbar"
-import Auth from "../widgets/Auth"
+import UserBar from "../../app/users/UserBar"
 
 export default function Layout({ children }) {
   return (
     <div className="bg-white">
       <Navbar />
-      <Auth />
+      <UserBar />
       {children}
     </div>
   )
