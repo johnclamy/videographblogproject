@@ -1,3 +1,9 @@
-export default function UserAuthDetails() {
-  return "user name and/or email address";
+import SignOut from './SignOut'
+
+export default function UserAuthDetails({ onToggleAuth }) {
+  return (
+    <p>
+      Signed in as: <b>John Doe</b> <SignOut onToggleAuth={onToggleAuth} />
+    </p>
+  );
 }
