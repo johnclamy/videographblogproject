@@ -1,13 +1,18 @@
 import { useState } from "react";
-import Auth from "../../components/widgets/Auth" 
+import AuthButton from "../../components/widgets/AuthButton" 
 import UserAuthDetails from "./UserAuthDetails";
 
 export default function UserBar() {
   const [signedIn, setSignedIn] = useState(false);
+  const toggleAuth = () => signedIn ? setSignedIn(false) : setSignedIn(true)
 
   return (
     <div>
-      {signedIn ? <UserAuthDetails /> : <Auth />}
+      {signedIn ? (
+        <UserAuthDetails onToggleAuth={toggleAuth} />
+      ) : (
+        <AuthButton signedIn={signedIn} onToggleAuth={toggleAuth} />
+      )}
     </div>
-  )
+  );
 }
