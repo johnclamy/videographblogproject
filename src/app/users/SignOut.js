@@ -1,3 +1,3 @@
-export default function SignOut() {
-  return <div>SignOut button component</div>;
+export default function SignOut({ onToggleAuth }) {
+  return <button onClick={onToggleAuth}>Sign Out</button>;
 }
