@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { FaAngleUp, FaAngleDown } from "react-icons/fa";
+import { BsFillArrowDownSquareFill, BsFillArrowUpSquareFill } from "react-icons/bs";
 
 export default function FilterBar() {
   const {open, setOpen} = useState(false)
@@ -13,13 +13,23 @@ export default function FilterBar() {
         >
           Blockchain Technology{" "}
           {open ? (
-            <FaAngleDown className="ml-2" onClick={() => setOpen(false)} />
+            <BsFillArrowDownSquareFill
+              className="ml-2"
+              onClick={() => setOpen(false)}
+            />
           ) : (
-            <FaAngleUp className="ml-2" onClick={() => setOpen(true)} />
+            <BsFillArrowUpSquareFill
+              className="ml-2"
+              onClick={() => setOpen(true)}
+            />
           )}
         </a>
       </div>
-      <nav className="{open ? 'block' : 'hidden'} w-full flex-grow sm:flex sm:items-center sm:w-auto">
+      <nav
+        className={`${
+          open ? "block" : "hidden"
+        } w-full flex-grow sm:flex sm:items-center sm:w-auto`}
+      >
         <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 py-2">
           <a href="/" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">
             Public
