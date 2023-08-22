@@ -1,4 +1,4 @@
-export default function Auth({ onToggleAuth }) {
+export default function AuthButton({ onToggleAuth }) {
   const handleClick = e => {
     e.preventDefault()
   }
