@@ -1,4 +1,4 @@
-export default function Signin() {
+export default function SigninForm() {
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -8,6 +8,7 @@ export default function Signin() {
         <input type="password" name="password" id="password" />
         <input type="submit" value="Sign In" />
       </form>
+      <p>Not registered yet? <a href="/">Register</a></p>
     </div>
   );
 }
