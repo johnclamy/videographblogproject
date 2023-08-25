@@ -4,7 +4,7 @@ export default function AuthModal({ isVisible, onSetShowModal, children }) {
 
   const authModal = !isVisible ? null : (
     <div id="modal-container" onClick={handleCloseModal} className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center">
-      <div className="w-full flex flex-col mx-2">
+      <div className="md:w-[600px] w-[90%] flex flex-col">
         <button
           onClick={closeModal}
           className="text-white text-xl place-self-end"
