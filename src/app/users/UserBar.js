@@ -1,18 +1,20 @@
-import { useState } from "react";
-import AuthButton from "../../components/widgets/AuthButton" 
+import { useState } from "react"
+import AuthButton from "../../components/widgets/AuthButton";
+import AuthModal from "../../components/widgets/AuthModal";
 import UserAuthDetails from "./UserAuthDetails";
 
-export default function UserBar() {
+export default function UseBar() {
   const [signedIn, setSignedIn] = useState(false);
-  const toggleAuth = () => signedIn ? setSignedIn(false) : setSignedIn(true)
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    <div>
-      {signedIn ? (
-        <UserAuthDetails onToggleAuth={toggleAuth} />
+    <section className="mx-3 mt-2">
+      {!signedIn ? (
+        <AuthButton showModal={showModal} onSetShowModal={setShowModal} />
       ) : (
-        <AuthButton signedIn={signedIn} onToggleAuth={toggleAuth} />
+        <UserAuthDetails onSignOut={() => setSignedIn(false)} />
       )}
-    </div>
+      <AuthModal isVisible={showModal} onSetShowModal={setShowModal} />
+    </section>
   );
 }
