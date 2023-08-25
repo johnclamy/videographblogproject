@@ -1,4 +1,4 @@
-export default function AuthModal({ isVisible, onSetShowModal }) {
+export default function AuthModal({ isVisible, onSetShowModal, children }) {
   const closeModal = () => onSetShowModal(false)
   const handleCloseModal = e => e.target.id === 'modal-container' ? closeModal() : null
 
@@ -11,7 +11,7 @@ export default function AuthModal({ isVisible, onSetShowModal }) {
         >
           X
         </button>
-        <div className="bg-white p-2 rounded">AuthModal</div>
+        <div className="bg-white p-2 rounded">{children}</div>
       </div>
     </div>
   );
