@@ -2,6 +2,7 @@ import { useState } from "react"
 import AuthButton from "../../components/widgets/AuthButton";
 import AuthModal from "../../components/widgets/AuthModal";
 import UserAuthDetails from "./UserAuthDetails";
+import SigninForm from "./SigninForm";
 
 export default function UseBar() {
   const [signedIn, setSignedIn] = useState(false);
@@ -14,7 +15,9 @@ export default function UseBar() {
       ) : (
         <UserAuthDetails onSignOut={() => setSignedIn(false)} />
       )}
-      <AuthModal isVisible={showModal} onSetShowModal={setShowModal} />
+      <AuthModal isVisible={showModal} onSetShowModal={setShowModal}>
+        <SigninForm />
+      </AuthModal>
     </section>
   );
 }
