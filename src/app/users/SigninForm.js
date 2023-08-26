@@ -69,12 +69,11 @@ export default function SigninForm() {
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Not registered yet?{" "}
-          <a
+          <button
             className="font-semibold leading-6 text-cyan-600 hover:text-cyan-500"
-            href="/"
           >
             Register
-          </a>
+          </button>
         </p>
       </div>
     </div>
