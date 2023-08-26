@@ -1,4 +1,4 @@
-export default function SigninForm() {
+export default function SigninForm({ onToggle }) {
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-0 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -70,6 +70,7 @@ export default function SigninForm() {
         <p className="mt-10 text-center text-sm text-gray-500">
           Not registered yet?{" "}
           <button
+            onClick={onToggle}
             className="font-semibold leading-6 text-cyan-600 hover:text-cyan-500"
           >
             Register
