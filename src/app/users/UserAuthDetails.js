@@ -1,9 +1,9 @@
-import SignOut from './SignOut'
+import SignOut from "../../components/widgets/SignOut";
 
 export default function UserAuthDetails({ onSignOut }) {
   return (
-    <p className="pl-2 pt-2">
-      Signed in as: <b className="mr-4">John Doe</b>{" "}
+    <p className="text-white flex gap-2 pr-4">
+      <b>John Doe</b>
       <SignOut onSignOut={onSignOut} />
     </p>
   );
