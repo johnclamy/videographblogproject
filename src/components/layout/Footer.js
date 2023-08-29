@@ -3,7 +3,7 @@ import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
 export default function Footer() {
   return (
     <footer className="w-full border-t bg-white pb-12">
-      <section className="flex items-center text-lg no-underline text-white pr-4">
+      <section className="flex justify-center items-center text-lg no-underline text-cyan-900 mt-5 mb-3">
         <a href="/">
           <BsFacebook />
         </a>
@@ -19,17 +19,17 @@ export default function Footer() {
       </section>
 
       <section className="w-full container mx-auto flex flex-col items-center">
-        <div className="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-          <a href="/" class="uppercase px-3">
+        <div className="flex flex-col md:flex-row text-center md:text-left md:justify-between pb-2">
+          <a href="/" className="uppercase px-3">
             About Us
           </a>
-          <a href="/" class="uppercase px-3">
+          <a href="/" className="uppercase px-3">
             Privacy Policy
           </a>
-          <a href="/" class="uppercase px-3">
+          <a href="/" className="uppercase px-3">
             Terms & Conditions
           </a>
-          <a href="/" class="uppercase px-3">
+          <a href="/" className="uppercase px-3">
             Contact Us
           </a>
         </div>
