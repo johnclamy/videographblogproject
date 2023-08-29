@@ -1,6 +1,7 @@
-import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
+import UserAuthDetails from "../../app/users/UserAuthDetails";
+import Signin from "../widgets/Signin";
 
-export default function Navbar() {
+export default function Navbar({ isSignedIn, onToggleSignin }) {
   return (
     <nav className="w-full py-4 bg-cyan-900 drop-shadow-md md:drop-shadow-xl">
       <div className="w-full container mx-auto flex flex-wrap items-center justify-between">
@@ -12,20 +13,11 @@ export default function Navbar() {
             about
           </a>
         </section>
-        <section className="flex items-center text-lg no-underline text-white pr-4">
-          <a href="/">
-            <BsFacebook />
-          </a>
-          <a className="pl-6" href="/">
-            <BsInstagram />
-          </a>
-          <a className="pl-6" href="/">
-            <BsTwitter />
-          </a>
-          <a className="pl-6" href="/">
-            <BsLinkedin />
-          </a>
-        </section>
+        {!isSignedIn ? (
+          <Signin onSignin={onToggleSignin} />
+        ) : (
+          <UserAuthDetails onSignOut={onToggleSignin} />
+        )}
       </div>
     </nav>
   );
