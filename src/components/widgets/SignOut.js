@@ -1,8 +1,8 @@
 export default function SignOut({ onSignOut }) {
   return (
     <button
-      className="text-cyan-800 hover:text-cyan-700 underline"
       onClick={onSignOut}
+      className="text-amber-200 hover:text-amber-300 hover:no-underline capitalize"
     >
       Sign Out
     </button>
