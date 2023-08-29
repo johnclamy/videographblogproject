@@ -2,8 +2,8 @@ import { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-export default function Layout({ children }) {
-  const [isSignedIn, setIsSignedIn] = useState(false)
+export default function Layout({ children, user }) {
+  const [isSignedIn, setIsSignedIn] = useState(user.isSignedIn)
 
   return (
     <div className="bg-white h-full">
