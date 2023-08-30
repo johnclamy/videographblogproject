@@ -6,10 +6,10 @@ import './App.css';
 
 function App() {
   return (
-    <Layout user={user}>
+    <Layout userIsSignedIn={user.isSignedIn}>
       <Header />
       <main className='container bg-slate-100 mx-auto flex flex-wrap py-4'>
-        <Post />
+        <Post username={user.name} post={user.blogs[0]} />
       </main>
     </Layout>
   );
