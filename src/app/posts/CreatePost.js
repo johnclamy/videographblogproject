@@ -1,6 +1,6 @@
 export default function CreatePost({ username }) {
   return (
-    <form className="bg-slate-400 p-2 pb-12 w-full md:w-3/5 lg:w-7/12 mx-auto">
+    <form className="bg-slate-400 p-2 pb-12 w-[95%] md:w-3/5 lg:w-7/12 mx-auto">
       <h1 className="text-cyan-50 text-2xl">Create a Post</h1>
       <hr />
       <p className="font-thin text-sm text-black mt-1 mb-6">
