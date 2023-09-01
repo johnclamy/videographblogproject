@@ -9,7 +9,7 @@ export default function Post({ username = '', post = null }) {
   }
 
   return (
-    <section className="w-full md:w-2/3 flex flex-col items-center px-3">
+    <section className="mx-auto w-full md:w-2/3 flex flex-col items-center px-3">
       <div className="flex flex-col shadow my-4">
         <a href="/" className="hover:opacity-75">
           <img alt={post.description} src={post.photo} />

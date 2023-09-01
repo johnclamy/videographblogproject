@@ -1,7 +1,7 @@
 import UserAuthDetails from "../../app/users/UserAuthDetails";
 import Signin from "../widgets/Signin";
 
-export default function Navbar({ isSignedIn, onToggleSignin }) {
+export default function Navbar({ userIsSignedIn, onToggleSignin }) {
   return (
     <nav className="w-full py-4 bg-cyan-900 drop-shadow-md md:drop-shadow-xl">
       <div className="w-full container mx-auto flex flex-wrap items-center justify-between">
@@ -13,7 +13,7 @@ export default function Navbar({ isSignedIn, onToggleSignin }) {
             about
           </a>
         </section>
-        {!isSignedIn ? (
+        {!userIsSignedIn ? (
           <Signin onSignin={onToggleSignin} />
         ) : (
           <UserAuthDetails onSignOut={onToggleSignin} />
