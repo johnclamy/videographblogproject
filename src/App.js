@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Layout from "./layout/Layout";
+import CreatePost from "./post/CreatePost";
+import PostList from "./post/PostList";
 
-function App() {
+const defaultPosts = [
+  {
+    title: "React Hooks",
+    content: "The greatest thing since sliced bread!",
+    author: "Daniel Bugl",
+  },
+  {
+    title: "Using React Fragments",
+    content: "Keeping the DOM tree clean!",
+    author: "Daniel Bugl",
+  },
+];
+
+export default function App() {
+  const [user, setUser] = useState('')
+  const [posts, setPosts] = useState(defaultPosts)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout user={user} onSetUser={setUser}>
+      {user &&
+        <CreatePost
+          user={user}
+          posts={posts}
+          onSetPosts={setPosts}
+        />
+      }
+      <PostList posts={posts} />
+    </Layout>
   );
 }
-
-export default App;
