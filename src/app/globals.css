@@ -6,7 +6,56 @@
 
 @layer base {
   html {
-    @apply bg-appGrey-200 text-appGrey-900;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
+    @apply bg-appGrey-200 text-appGrey-900;
+  }
+
+  h1 {
+    @apply mb-2 text-3xl font-bold;
+  }
+
+  h2 {
+    @apply mb-1 text-xl font-semibold;
+  }
+
+  a {
+    @apply text-appGrey-800 underline underline-offset-2 font-semibold hover:text-appGrey-900;
+  }
+
+  input,
+  select {
+    @apply text-appGrey-900 p-1 mb-1 border border-appGrey-800 rounded outline-none;
+  }
+
+  input[type="text"] {
+    @apply placeholder:italic disabled:bg-slate-300;
+  }
+
+  input[type="checkbox"] {
+    @apply p-2 accent-appYellow-200 mr-1 mb-0 mt-0.5;
+  }
+
+  select {
+    @apply pr-8;
+  }
+
+  label {
+    @apply text-sm text-appGrey-800 font-medium leading-4;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg hover:transition hover:duration-300 hover:opacity-80 disabled:bg-slate-400/45 hover:disabled:opacity-100;
+  }
+
+  .btn-primary {
+    @apply bg-appGrey-800 text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-appGrey-300 text-appGrey-900;
+  }
+
+  .btn-warning {
+    @apply bg-appYellow-200 text-appGrey-900;
   }
 }
