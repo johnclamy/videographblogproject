@@ -1,7 +1,5 @@
+// import { Button } from "@/components/ui/button";
+
 export default function Home() {
-  return (
-    <main>
-      <p className="p-2 text-blue-600">Welcome to our website</p>
-    </main>
-  );
+  return <main className="text-primary text-lg">need some data here...</main>;
 }
