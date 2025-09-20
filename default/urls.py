@@ -3,6 +3,6 @@ from .views import home_page
 
 
 urlpatterns = [
-    path('', home_page, name='home_page'),
+    path('', home_page, name='default.home_page'),
 ]
 
