@@ -1,0 +1,39 @@
+body {
+  font-style: normal;
+}
+
+
+.play-regular {
+  font-family: "Play", sans-serif;
+  font-weight: 400;
+}
+
+.play-bold {
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+}
+
+.josefin-light {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+}
+
+.josefin-regular {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
+.josefin-semi-bold {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+}
+
+.josefin-bold {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+}
+
+.josefin-bolder {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+}
